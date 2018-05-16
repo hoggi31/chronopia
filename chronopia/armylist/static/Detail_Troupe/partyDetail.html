@@ -1,0 +1,135 @@
+<div class="container-fluid">
+
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a data-target="#unitsPan" aria-controls="home" role="tab" data-toggle="tab">Unites</a></li>
+        <li role="presentation"><a data-target="#spellPan" aria-controls="profile" role="tab" data-toggle="tab">Sorts</a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane fade in active" id="unitsPan">
+            <div class="row">
+                <div class="list-group col col-md-4">
+
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-class="{'active':partyDetailCtrl.isSelect(unitTroup)}" ng-repeat="unitTroup in partyDetailCtrl.troups.unitList" ng-click="partyDetailCtrl.setSelectedTroup(unitTroup)">
+                            <span class="badge">{{unitTroup.count}}</span> {{unitTroup.unit.name}}
+                        </li>
+                    </ul>
+
+                    <!--select id="select " class="form-control hidden-xs">
+				  <option value="$index" ng-repeat="unitTroup in partyDetailCtrl.troups.unitList" ng-click="partyDetailCtrl.setSelectedTroup(unitTroup)">{{unitTroup.unit.name}}</option> 
+				</select-->
+
+                </div>
+                <div class="panel panel-default col-md-8">
+                    <div class="panel-heading">{{partyDetailCtrl.selectedTroup.unit.name}}</div>
+                    <div class="panel-body ">
+
+                        <table>
+                            <tr>
+                                <td></td>
+                                <td align="center">
+                                    <img src="/static/img/commandement.png" Align="Center">{{partyDetailCtrl.selectedTroup.unit.commandment}}</img>
+                                </td>
+                                <td align="center">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="/static/img/vie.png">{{partyDetailCtrl.selectedTroup.unit.wound}}</img>
+                                </td>
+                                <td rowspan="2"><img src="{{partyDetailCtrl.selectedTroup.unit.model_pic}}"></img>
+                                </td>
+                                <td><img src="/static/img/actions.png">{{partyDetailCtrl.selectedTroup.unit.action}}</img>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="/static/img/mouvement.png">{{partyDetailCtrl.selectedTroup.unit.mouvement}}</img>
+                                </td>
+
+                                <td><img src="/static/img/armure.png">{{partyDetailCtrl.selectedTroup.unit.armure}}</img>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td align="center"><img src="/static/img/defense.png" Align="Center">{{partyDetailCtrl.selectedTroup.unit.defence}}</img>
+                                </td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td align="center"><img src="/static/img/mana.png" ng-show=partyDetailCtrl.IsMago(partyDetailCtrl.selectedTroup.unit) Align="Center">{{partyDetailCtrl.selectedTroup.unit.magie}}</img>
+                                </td>
+                                <td></td>
+                            </tr>
+                        </table>
+                        <p>Force : {{partyDetailCtrl.selectedTroup.unit.force}}</p>
+                        <p>Taille : {{partyDetailCtrl.selectedTroup.unit.taille}}</p>
+
+
+                    </div>
+
+                    <div>
+
+                        <div ng-repeat="competence in partyDetailCtrl.selectedTroup.unit.competences">
+
+                            <button type="button" class="btn btn-default btn-sm btn-block" data-toggle="modal" data-target="#myModal-{{$index}}">
+									  <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+									  {{competence.name}}
+									</button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="myModal-{{$index}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="myModalLabel">{{competence.name}}</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            {{competence.description}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <li class="list-group-item" ng-repeat="attaques in partyDetailCtrl.selectedTroup.unit.attaques">
+                            <strong>{{attaques.type}}</strong> Attaque: {{attaques.att}} Dommage: {{attaques.dmg}} Effet:{{attaques.Effets}}
+                        </li>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div role="tabpanel" class="tab-pane fade in" id="spellPan">
+            <div class="row">
+                <div class="list-group col col-md-4">
+
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-class="{'active':partyDetailCtrl.isSelect(spellTroup)}" ng-repeat="spellTroup in partyDetailCtrl.troups.spellList" ng-click="partyDetailCtrl.setSelectedTroup(spellTroup)">{{spellTroup.spell.name}}</li>
+                    </ul>
+
+                    <!--select id="select " class="form-control visible-xs">
+				  <option value="$index" ng-repeat="spellTroup in partyDetailCtrl.troups.spellList" ng-click="partyDetailCtrl.setSelectedTroup(spellTroup)">{{spellTroup.spell.name}}</option> 
+				</select-->
+                </div>
+                <div class="panel panel-default col-md-8">
+                    <div class="panel-heading">{{partyDetailCtrl.selectedTroup.spell.name}}</div>
+                    <div class="panel-body ">
+                        <img class="col-md-3 col-xs-6" src="{{partyDetailCtrl.selectedTroup.spell.model_pic}}"></img>
+                        <div class="col-md-9">
+                            <p>Description : {{partyDetailCtrl.selectedTroup.spell.description}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</div>
+</div>

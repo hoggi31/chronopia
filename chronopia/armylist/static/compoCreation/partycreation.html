@@ -1,0 +1,169 @@
+<div class="container-fluid">
+    <h1 class="visible-xs">{{partyCtrl.party.name}}</h1>
+
+    <div class="row">
+        <div class="col-lg-5">
+            <div>
+                <div>
+                    <!-- label for="docType">armees:</label -->
+                    <select class="form-control" ng-change="partyCtrl.setList()" ng-options="army.name for army in partyCtrl.armyList" placeholder="Select army" ng-model="partyCtrl.selectedArmy" required>     
+			</select>
+                </div>
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a data-target="#unitsPan" aria-controls="home" role="tab" data-toggle="tab">Unites</a></li>
+                    <li role="presentation"><a data-target="#SpellPan" aria-controls="profile" role="tab" data-toggle="tab">Sorts</a></li>
+                </ul>
+
+                <!-- Tab panes -->
+                <label>
+	<ul class="nav nav-pills visible-xs" role="tablist">
+		 <li role="presentation" ><a>Cout <span class="label label-primary">{{partyCtrl.totalCost}}</span></a></li>
+		 <li role="presentation" ><a>Archer <span ng-class="{'label label-success': partyCtrl.oktir,'label label-danger': !partyCtrl.oktir}">{{partyCtrl.totaltir}}</span></a></li>
+		 <li role="presentation" ><a>Indep. <span ng-class="{'label label-success': partyCtrl.okindep,'label label-danger': !partyCtrl.okindep}">{{partyCtrl.totalindep}}</span></a></li>
+	</ul>
+  </label>
+
+                <!-- input type="checkbox" ng-model="partyCtrl.independant" ng-change="partyCtrl.updateFilter()" label="ter"/>
+						Independant
+					</label>
+					<label>
+						<input type="checkbox" ng-model="partyCtrl.Unite" ng-change="partyCtrl.updateFilter()" label="ter"/>
+						Unite
+					</label>
+					<label>
+						<input type="checkbox" ng-model="partyCtrl.Tir" ng-change="partyCtrl.updateFilter()" label="ter"/>
+						Tir -->
+
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in active" id="unitsPan">
+                        <input id="input-search" ng-focus="" class="form-control" type="input" value="" ng-change="partyCtrl.updateSearch()" ng-model="partyCtrl.search" placeholder="Search..."></input>
+                        <div class="btn-group btn-group-sm" role="group">
+                            <button type="button" class="btn btn-default" ng-click="partyCtrl.updateFilter('')">All</button>
+                            <button type="button" class="btn btn-default" ng-click="partyCtrl.updateFilter('Independant')">Indep</button>
+                            <button type="button" class="btn btn-default" ng-click="partyCtrl.updateFilter('Unite')">Unit</button>
+                        </div>
+                        <div class="listUnit" ng-repeat="unit in partyCtrl.unitList | filter:partyCtrl.filter">
+                            <div class="panel-group fixed" id="accordion" role="tablist">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="headingOne">
+                                        <h4 class="panel-title">
+                                            <span ng-class="{'glyphicon glyphicon-ok' : unit.tir}">
+					      
+					      	</span>
+                                            <a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne-{{$index}}" aria-expanded="true" aria-controls="collapseOne">
+					          {{unit.name}}	       {{unit.type2}}	{{unit.min}}  {{unit.max}}			                  
+					        </a>
+                                            <span class="glyphicon glyphicon-plus pull-right iconelist" ng-touch="partyCtrl.addtroupe(unit,1)" ng-click="partyCtrl.addtroupe(unit,1)"></span>
+                                            <span class="CountLabel visible-xs pull-right" ng-model="unit.count">{{unit.count}}</span>
+                                            <!--span class="glyphicon glyphicon-minus pull-right iconelist" ng-touch="partyCtrl.addtroupe(unit,-1)" ng-click="partyCtrl.addtroupe(unit,-1)"></span-->
+
+                                        </h4>
+                                    </div>
+                                    <div id="collapseOne-{{$index}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-lg-7">
+                                                    <p>{{unit.type}}</p>
+                                                    <p>Action : {{unit.action}}</p>
+                                                    <p>Mouvement : {{unit.mouvement}}</p>
+                                                    <p>Blessure : {{unit.wound}}</p>
+                                                    <p>Commandement : {{unit.commandment}}</p>
+                                                    <p>defence : {{unit.defence}}</p>
+                                                    <p>Armure : {{unit.armure}}</p>
+                                                    <p>force : {{unit.force}}</p>
+                                                    <p>taille : {{unit.taille}}</p>
+                                                    <p>magie : {{unit.magie}}</p>
+                                                    <p>$ :{{unit.cost}}</p>
+                                                </div>
+
+                                                <div class="col-lg-5">
+                                                    <h4>Competences</h4>
+                                                    <div ng-repeat="competence in unit.competences">
+                                                        <b>{{competence.name}}:</b> {{competence.description}}
+                                                    </div>
+                                                    <h4>Attaques</h4>
+                                                    <p ng-repeat="atk in unit.attaques">
+                                                        <b>{{atk.type}}:</b> Attaques:{{atk.att}} dmg:{{atk.dmg}} {{atk.Effets}}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div role="tabpanel" class="tab-pane fade " id="SpellPan">
+                        <div class="panel-group fixed" id="accordion2" role="tablist" ng-repeat="spell in partyCtrl.spellList">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingOne">
+                                    <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse2" data-parent="#accordion2" data-target="#collapseOne1-{{$index}}" aria-expanded="true" aria-controls="collapseOne1">
+			          {{spell.name}}	     cost={{spell.costSpell}}     lvl = {{spell.level}} Action= {{spell.action}}  portee= {{spell.portee}}  R={{spell.resistance}}"
+			        </a>
+                                        <span class="glyphicon glyphicon-plus pull-right iconelist" ng-click="partyCtrl.addSpell(spell,1)" ng-touch="partyCtrl.addSpell(spell,1)"></span>
+                                        <span class="CountLabel visible-xs pull-right" ng-model="spell.count">{{spell.count}}</span>
+                                        <span class="glyphicon glyphicon-minus pull-right iconelist" ng-click="partyCtrl.addSpell(spell,-1)" ng-touch="partyCtrl.addSpell(spell,-1)"></span>
+                                    </h4>
+                                </div>
+                                <div id="collapseOne1-{{$index}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                    <div class="panel-body">
+                                        {{spell.name}} {{spell.cost}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-5 hidden-xs">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <form class="form-inline">
+                        <input type="text" class="form-control titlepartname" ng-model="partyCtrl.party.name" />
+
+                        <button type="submit" class="btn btn-primary mb-2" ng-click="partyCtrl.updatepartyname()">update</button>
+                    </form>
+                    <ul class="nav nav-pills" role="tablist">
+                        <li role="presentation"><a>Cout <span class="label label-primary">{{partyCtrl.totalCost}}</span></a></li>
+                        <li role="presentation"><a>Archer <span ng-class="{'label label-success': partyCtrl.oktir,'label label-danger': !partyCtrl.oktir}">{{partyCtrl.totaltir}}</span></a></li>
+                        <li role="presentation"><a>Indep. <span ng-class="{'label label-success': partyCtrl.okindep,'label label-danger': !partyCtrl.okindep}">{{partyCtrl.totalindep}}</span></a></li>
+                    </ul>
+                </div>
+                <div class="panel-body">
+                    <div class="alert alert-success" role="alert" ng-repeat="unittroups in partyCtrl.party.unitList">
+                        <button type="button" class="close" aria-label="Close" ng-click="partyCtrl.removetroupe(unittroups)"><span aria-hidden="true">&times;</span></button>
+                        <!--span class="badge">{{unittroups.count}}</span-->{{unittroups.unit.name}}
+                        <input type="number" class="col-lg-2 formAppinputNB" ng-change="partyCtrl.updateTroup(unittroups)" ng-model="unittroups.count" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-info">
+                <div class="panel-heading">Sort</div>
+                <div class="panel-body">
+                    <div class="alert alert-info" role="alert" ng-repeat="spelltroups in partyCtrl.party.spellList">
+                        <button type="button" class="close" aria-label="Close" ng-click="partyCtrl.addSpell(spelltroups.spell,-1)"><span aria-hidden="true">&times;</span></button>
+                        <span class="badge">{{spelltroups.count}}</span> {{spelltroups.spell.name}}
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,27 @@
+<div class="row">
+
+    <div class="tuileArmy col-sm-4 col-md-3" ng-repeat="comp in partyOverCtrl.compoList">
+        <button type="button" class="close" aria-label="Close" ng-click="partyOverCtrl.deleteCompo(comp)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+        <div class="panel-heading">
+            <h3 ng-click="partyOverCtrl.pathDetail(comp.id)">{{comp.name}} </h3>
+            {{comp.totalCost}} points
+        </div>
+
+        <button type="button" class="btn btn-default" aria-label="Left Align" ng-click="partyOverCtrl.path(comp.id)">
+			<a  class="glyphicon glyphicon-pencil" aria-hidden="true" ></a>
+
+		</button>
+    </div>
+</div>
+</br>
+<div class="row">
+    <div>
+        <form class="form-inline" ng-submit="partyOverCtrl.create()">
+            <div class="form-group">
+                <label for="armyName"></label>
+                <input type="text" class="form-control" id="armyName" ng-model="partyOverCtrl.NewParty.name" placeholder="nouveau group" required/>
+            </div>
+            <button type="submit" class="btn btn-default">Create</button>
+        </form>
+    </div>
+</div>

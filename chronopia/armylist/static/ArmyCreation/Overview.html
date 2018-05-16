@@ -1,0 +1,52 @@
+<div>
+<label for="docType">armées:</label>
+<select class="form-control" ng-options="army.name for army in armyCtrl.armyList" placeholder="Select army" ng-model="armyCtrl.selectedArmy" required>     
+</select>
+
+<div class="table table-responsive">
+	<table class="table table-hover tablePN">
+	<thead>
+		<tr>
+			<th>name</th>
+			<th>action</th>
+			<th>mvt</th>
+			<th>w</th>	
+			<th>3</th>
+			<th>4</th>	
+			<th>5</th>
+			<th>6</th>
+			<th>7</th>
+			<th>8</th>	
+			<th>9</th>
+			<th>10</th>				
+		</tr>
+	</thead>
+	<tfoot></tfoot>
+	<tbody>
+	<tr ng-repeat="unit in armyCtrl.selectedArmy.unitList">
+		<td>{{unit.name}}</td>
+		<td>{{unit.action}}</td>
+		<td>{{unit.mouvement}}</td>
+		<td>{{unit.wound}}</td>
+		<td>{{unit.commandement}}</td>
+		<td>{{unit.defence}}</td>
+		<td>{{unit.armure}}</td>
+		<td>{{unit.force}}</td>
+		<td>{{unit.taille}}</td>
+		<td>{{unit.type}}</td>
+		<td>{{unit.cost}}</td>	
+		<td>
+		<p ng-repeat="comp in unit.competences" >{{comp.name}} </p>		
+		</td>	
+		
+		<td>
+		<p ng-repeat="atk in unit.attaques" >{{atk}} </p>		
+		</td>
+		
+	</tr>	
+	</tbody>	
+	</table>
+
+</div>
+
+</div>

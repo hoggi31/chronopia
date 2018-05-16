@@ -1,0 +1,9 @@
+eclipse.preferences.version=1
+encoding//armylist/admin.py=utf-8
+encoding//armylist/importExcel.py=utf-8
+encoding//armylist/importFile.py=utf-8
+encoding//armylist/models.py=utf-8
+encoding//armylist/serializers.py=utf-8
+encoding//armylist/urls.py=utf-8
+encoding//armylist/views.py=utf-8
+encoding//armylist/viewsets.py=utf-8
