@@ -1,20 +1,26 @@
 var armyModule = angular.module("armyCreationModule");
 
-armyModule.controller("partyDetailController", ["ArmyPartyDisplay", "$routeParams", function(ArmyPartyDisplay, $routeParams) {
+armyModule.controller("partyDetailController", ["ArmyPartyDisplay", "user", "$routeParams", function(ArmyPartyDisplay, user, $routeParams) {
     var self = this;
     self.partyTroupId = $routeParams.ID;
+    var promUser = user.myself();
 
-    var troupsPromise = ArmyPartyDisplay.get({ armyParty: self.partyTroupId });
-    console.log(troupsPromise);
+    promUser.$promise.then(function(res) {
+        var troupsPromise = ArmyPartyDisplay.get({ armyParty: self.partyTroupId, author: res.id });
+        console.log(troupsPromise);
 
-    self.idactif = 0;
+        self.idactif = 0;
 
-    troupsPromise.$promise.then(function(res) {
-        console.log(res);
-        self.troups = res;
+        troupsPromise.$promise.then(function(res) {
+            console.log(res);
+            self.troups = res;
 
-        self.selectedTroup = self.troups.unitList[0];
+            self.selectedTroup = self.troups.unitList[0];
+        });
+
     });
+
+
 
     self.setSelectedTroup = function(unit) {
         self.selectedTroup = unit;
@@ -36,6 +42,9 @@ armyModule.controller("partyDetailController", ["ArmyPartyDisplay", "$routeParam
     self.IsMago = function(unit) {
         return (unit.magie > 0);
     }
+    self.isUser = function() {
+        return promUser == self.troups.user;
 
+    }
 
 }]);

@@ -99,24 +99,38 @@
 
 
                     <div role="tabpanel" class="tab-pane fade " id="SpellPan">
-                        <div class="panel-group fixed" id="accordion2" role="tablist" ng-repeat="spell in partyCtrl.spellList">
+
+
+
+
+
+                        <div class="panel-group fixed" id="accordionSpell" role="tablist" ng-repeat="spell in partyCtrl.spellList">
                             <div class="panel panel-default">
                                 <div class="panel-heading" role="tab" id="headingOne">
                                     <h4 class="panel-title">
-                                        <a role="button" data-toggle="collapse2" data-parent="#accordion2" data-target="#collapseOne1-{{$index}}" aria-expanded="true" aria-controls="collapseOne1">
-			          {{spell.name}}	     cost={{spell.costSpell}}     lvl = {{spell.level}} Action= {{spell.action}}  portee= {{spell.portee}}  R={{spell.resistance}}"
+                                        <a role="button" data-toggle="collapsespell" data-parent="#accordionSpell" data-target="#collapseOne1-{{$index}}" aria-expanded="true" aria-controls="accordionSpell">
+			          {{spell.name}}	
 			        </a>
                                         <span class="glyphicon glyphicon-plus pull-right iconelist" ng-click="partyCtrl.addSpell(spell,1)" ng-touch="partyCtrl.addSpell(spell,1)"></span>
                                         <span class="CountLabel visible-xs pull-right" ng-model="spell.count">{{spell.count}}</span>
                                         <span class="glyphicon glyphicon-minus pull-right iconelist" ng-click="partyCtrl.addSpell(spell,-1)" ng-touch="partyCtrl.addSpell(spell,-1)"></span>
                                     </h4>
                                 </div>
-                                <div id="collapseOne1-{{$index}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                <div id="collapseOne1-{{$index}}" class="panel-collapse collapsespell" role="tabpanel" aria-labelledby="headingOne">
                                     <div class="panel-body">
-                                        {{spell.name}} {{spell.cost}}
+                                        <p>cout={{spell.cost}}</p>
+                                        <p>lvl = {{spell.level}}</p>
+                                        <p>Action= {{spell.action}}</p>
+                                        <p>portee= {{spell.portee}}</p>
+                                        <p>R={{spell.resistance}}</p>
+
                                     </div>
                                 </div>
                             </div>
+
+
+
+
                         </div>
 
 

@@ -25,7 +25,7 @@ class attaquesSerializer(serializers.ModelSerializer):
 class spellSerializer(serializers.ModelSerializer):
     class Meta:
         model = spell
-        fields = ("id", "name", "army","costSpell","description","model_pic","level","action","portee","resistance")
+        fields = ("id", "name", "army","cost","description","model_pic","level","action","portee","resistance")
 
 class CompetenceSerializer(serializers.ModelSerializer):
     class Meta:
@@ -44,6 +44,7 @@ class UnitSerializer(serializers.ModelSerializer):
                     "cost",
                     "min",
                     "max",
+                    "vol",
                     "model_pic",
                     "controlemd5",
                     "name",

@@ -1,7 +1,16 @@
 var armyModule = angular.module("armyCreationModule");
 
-armyModule.controller("partyCreationController", ["army", "ArmyPartyDisplay", "Troups", "unit", "$routeParams", "spells", "spellsf", function(army, ArmyPartyDisplay, Troups, unit, $routeParams, spells, spellsf) {
+armyModule.controller("partyCreationController", ["army", "user", "ArmyPartyDisplay", "Troups", "unit", "$routeParams", "spells", "spellsf", function(army, user, ArmyPartyDisplay, Troups, unit, $routeParams, spells, spellsf) {
     var self = this;
+
+
+    var promUser = user.myself();
+    var currentUser = null;
+    promUser.$promise.then(function(res) {
+        currentUser = res;
+        self.getArmyParty();
+
+    });
 
     self.selectedArmy = null;
     self.party = new ArmyPartyDisplay();
@@ -48,7 +57,7 @@ armyModule.controller("partyCreationController", ["army", "ArmyPartyDisplay", "T
     }
 
     self.getArmyParty = function() {
-        var partyPromise = ArmyPartyDisplay.get({ armyParty: self.IdArmee });
+        var partyPromise = ArmyPartyDisplay.get({ armyParty: self.IdArmee, author: currentUser.id });
         partyPromise.$promise.then(function(res) {
             self.party = res;
             self.updateCountUnitList();
@@ -72,7 +81,7 @@ armyModule.controller("partyCreationController", ["army", "ArmyPartyDisplay", "T
         });
     }
 
-    self.getArmyParty();
+
 
     self.setList = function() {
         self.setListUnit();

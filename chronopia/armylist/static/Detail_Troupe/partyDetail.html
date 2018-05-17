@@ -43,7 +43,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td><img src="/static/img/mouvement.png">{{partyDetailCtrl.selectedTroup.unit.mouvement}}</img>
+                                <td><img src="/static/img/mouvement.png">{{partyDetailCtrl.selectedTroup.unit.mouvement}}/{{partyDetailCtrl.selectedTroup.unit.vol}}</img>
                                 </td>
 
                                 <td><img src="/static/img/armure.png">{{partyDetailCtrl.selectedTroup.unit.armure}}</img>
@@ -64,6 +64,7 @@
                         </table>
                         <p>Force : {{partyDetailCtrl.selectedTroup.unit.force}}</p>
                         <p>Taille : {{partyDetailCtrl.selectedTroup.unit.taille}}</p>
+                        <p>Cout : {{partyDetailCtrl.selectedTroup.unit.cost}}</p>
 
 
                     </div>
@@ -121,7 +122,12 @@
                     <div class="panel-body ">
                         <img class="col-md-3 col-xs-6" src="{{partyDetailCtrl.selectedTroup.spell.model_pic}}"></img>
                         <div class="col-md-9">
-                            <p>Description : {{partyDetailCtrl.selectedTroup.spell.description}}</p>
+                            <p>{{partyDetailCtrl.selectedTroup.spell.description}}</p>
+                            <p>cout={{partyDetailCtrl.selectedTroup.spell.cost}}</p>
+                            <p>lvl = {{partyDetailCtrl.selectedTroup.spell.level}}</p>
+                            <p>Action= {{partyDetailCtrl.selectedTroup.spell.action}}</p>
+                            <p>portee= {{partyDetailCtrl.selectedTroup.spell.portee}}</p>
+                            <p>R={{partyDetailCtrl.selectedTroup.spell.resistance}}</p>
                         </div>
                     </div>
                 </div>
