@@ -6,7 +6,7 @@ Created on 21 juil. 2016
 '''
 from rest_framework import serializers
 
-from armylist.models import Unit,Attack,spell,Competence,Army,Army_Party,TroupUnit,TroupSpell,Party
+from armylist.models import Unit,Attack,spell,Competence,Army,Army_Party,TroupUnit,TroupSpell,Party,Clan
 from django.contrib.auth.models import User
 
 #DocumentType(Authored):
@@ -32,15 +32,21 @@ class CompetenceSerializer(serializers.ModelSerializer):
         model = Competence
         fields = "__all__"
 
+class ClanSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Clan
+        fields = "__all__"
+
 class UnitSerializer(serializers.ModelSerializer):
     competences = CompetenceSerializer( many=True, read_only=True)
     attaques = attaquesSerializer(many=True, read_only=True)    
-    
+    clan = ClanSerializer(many=False, read_only=True) 
     class Meta:
         model = Unit
         fields = ("id", 
                   "competences",
                     "attaques",
+                    "bouclier",
                     "cost",
                     "min",
                     "max",
@@ -61,8 +67,9 @@ class UnitSerializer(serializers.ModelSerializer):
                     "type",
                     "type2",
                     "army",
+                    "clan",
                     "tir") 
-        read_only_fields = ('competences','attaques') 
+        read_only_fields = ('competences','attaques','clan') 
 
 
 
@@ -137,3 +144,4 @@ class PartySerializer(serializers.ModelSerializer):
     class Meta:
         model = Party
         fields = "__all__"
+

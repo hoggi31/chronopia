@@ -7,11 +7,11 @@ from django.dispatch import receiver
 from django.contrib.auth.models import User
 
 class Card(models.Model):
-    name   = models.CharField(max_length=100,unique=True);
-    description = models.CharField(max_length=2000,blank=True,null=True);
-    cost = models.IntegerField(blank=True,null=True);
-    min = models.IntegerField(blank=True,null=True);
-    max = models.IntegerField(blank=True,null=True);
+    name   = models.CharField(max_length=100,unique=True)
+    description = models.CharField(max_length=2000,blank=True,null=True)
+    cost = models.IntegerField(blank=True,null=True)
+    min = models.IntegerField(blank=True,null=True)
+    max = models.IntegerField(blank=True,null=True)
     model_pic = models.ImageField(upload_to='armylist/cards',blank=True,null=True)
     
     
@@ -28,17 +28,17 @@ UNIT_CHOICES = (
 )
 
 class Attack(models.Model):
-    att=models.IntegerField(blank=True,null=True);
-    dmg=models.IntegerField(blank=True,null=True);
-    type= models.CharField(max_length=20);    
-    Effets = models.TextField(blank=True,null=True);    
+    att=models.IntegerField(blank=True,null=True)
+    dmg=models.IntegerField(blank=True,null=True)
+    type= models.CharField(max_length=20)  
+    Effets = models.TextField(blank=True,null=True)  
     units = models.ManyToManyField('Unit',related_name="attaques",blank=True,null=True )
     
     def __str__(self):
         return 'type {type}/ att{att} / dmg{dmg}'.format(type=self.type, att=self.att,dmg=self.dmg)
     
 class Competence(models.Model):
-    name   = models.TextField(unique=True);
+    name   = models.TextField(unique=True)
     description = models.TextField(blank=True,null=True )
     dim = models.IntegerField(blank=True,null=True )
     units = models.ManyToManyField('Unit',related_name="competences",blank=True,null=True )
@@ -47,7 +47,7 @@ class Competence(models.Model):
     
 class spell(Card):    
     costSpell = models.IntegerField(blank=True,null=True) 
-    level = models.IntegerField(blank=True,null=True ) ;
+    level = models.IntegerField(blank=True,null=True ) 
     army = models.ForeignKey('Army',related_name="spellList",blank=True,null=True)
     action = models.IntegerField(blank=True,null=True ) 
     portee = models.CharField(max_length=50,blank=True,null=True)
@@ -55,26 +55,35 @@ class spell(Card):
     
     def __unicode__(self):              # __unicode__ on Python 2
         return self.name
-    
+
+class Clan(models.Model):
+    name = models.CharField(max_length=100,unique=True)
+    model_pic = models.ImageField(upload_to='armylist/cards',blank=True,null=True)
+
+    def __unicode__(self):              # __unicode__ on Python 2
+        return self.name
+
 class Unit(Card):
-    action = models.IntegerField(blank=True,null=True);
-    mouvement = models.IntegerField(blank=True,null=True);
-    vol = models.IntegerField(blank=True,null=True);
+    action = models.IntegerField(blank=True,null=True)
+    mouvement = models.IntegerField(blank=True,null=True)
+    vol = models.IntegerField(blank=True,null=True)
     army = models.ForeignKey('Army',related_name="unitList",blank=True,null=True)
+    clan = models.ForeignKey('Clan',related_name="unitList",blank=True,null=True)
     generique = models.CharField(max_length=50,blank=True,null=True)
-    magie = models.IntegerField(blank=True,null=True);
-    wound = models.IntegerField(blank=True,null=True);
-    commandment = models.IntegerField(blank=True,null=True);
+    magie = models.IntegerField(blank=True,null=True)
+    wound = models.IntegerField(blank=True,null=True)
+    commandment = models.IntegerField(blank=True,null=True)
     
     notes = models.CharField(max_length=1000,blank=True,null=True)
-    defence = models.IntegerField(blank=True,null=True);
-    armure = models.IntegerField(blank=True,null=True);
-    force = models.IntegerField(blank=True,null=True);
-    taille = models.IntegerField(blank=True,null=True);
-    type = models.CharField(max_length=20,choices=UNIT_CHOICES,blank=True,null=True);
-    type2 = models.CharField(max_length=20,blank=True,null=True);
-    tir = models.BooleanField();
-    
+    defence = models.IntegerField(blank=True,null=True)
+    bouclier = models.IntegerField(blank=True,null=True)
+    armure = models.IntegerField(blank=True,null=True)
+    force = models.IntegerField(blank=True,null=True)
+    taille = models.IntegerField(blank=True,null=True)
+    type = models.CharField(max_length=20,choices=UNIT_CHOICES,blank=True,null=True)
+    type2 = models.CharField(max_length=20,blank=True,null=True)
+    tir = models.BooleanField()
+
     def __unicode__(self):              # __unicode__ on Python 2
         return self.name
     
