@@ -17,55 +17,29 @@
                     </ul>
 
                     <!--select id="select " class="form-control hidden-xs">
-				  <option value="$index" ng-repeat="unitTroup in partyDetailCtrl.troups.unitList" ng-click="partyDetailCtrl.setSelectedTroup(unitTroup)">{{unitTroup.unit.name}}</option> 
+				  <option value="$index" ng-repeat="unitTroup in partyDetailCtrl.troups.unitList" ng-click="partyDetailCtrl.setSelectedTroup(unitTroup)">{{unitTroup.unit.name}}</option>
 				</select-->
 
                 </div>
                 <div class="panel panel-default col-md-8">
-                    <div class="panel-heading">{{partyDetailCtrl.selectedTroup.unit.name}}</div>
-                    <div class="panel-body ">
+                    <!--<div class="panel-heading">{{partyDetailCtrl.selectedTroup.unit.name}}</div>-->
+                    <div class="panel-body " id="unitCard">
 
-                        <table>
-                            <tr>
-                                <td></td>
-                                <td align="center">
-                                    <img src="/static/img/commandement.png" Align="Center">{{partyDetailCtrl.selectedTroup.unit.commandment}}</img>
-                                </td>
-                                <td align="center">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><img src="/static/img/vie.png">{{partyDetailCtrl.selectedTroup.unit.wound}}</img>
-                                </td>
-                                <td rowspan="2"><img src="{{partyDetailCtrl.selectedTroup.unit.model_pic}}"></img>
-                                </td>
-                                <td><img src="/static/img/actions.png">{{partyDetailCtrl.selectedTroup.unit.action}}</img>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><img src="/static/img/mouvement.png">{{partyDetailCtrl.selectedTroup.unit.mouvement}}/{{partyDetailCtrl.selectedTroup.unit.vol}}</img>
-                                </td>
-
-                                <td><img src="/static/img/armure.png">{{partyDetailCtrl.selectedTroup.unit.armure}}</img>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td align="center"><img src="/static/img/defense.png" Align="Center">{{partyDetailCtrl.selectedTroup.unit.defence}}</img>
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td align="center"><img src="/static/img/mana.png" ng-show=partyDetailCtrl.IsMago(partyDetailCtrl.selectedTroup.unit) Align="Center">{{partyDetailCtrl.selectedTroup.unit.magie}}</img>
-                                </td>
-                                <td></td>
-                            </tr>
-                        </table>
-                        <p>Force : {{partyDetailCtrl.selectedTroup.unit.force}}</p>
-                        <p>Taille : {{partyDetailCtrl.selectedTroup.unit.taille}}</p>
-                        <p>Cout : {{partyDetailCtrl.selectedTroup.unit.cost}}</p>
-
+						<DIV ID="unitCardName" CLASS="unitCardIcons">{{partyDetailCtrl.selectedTroup.unit.name}}</DIV>
+						<DIV ID="unitCardPic" CLASS="unitCardIcons" STYLE="background-image:url({{partyDetailCtrl.selectedTroup.unit.model_pic}});"></DIV>
+						<DIV ID="unitCardArmy" CLASS="unitCardIcons" STYLE="background-image:url(/static/img/army{{partyDetailCtrl.selectedTroup.unit.army}}.png);"></DIV>
+						<DIV ID="unitCardWounds" CLASS="unitCardIcons">{{partyDetailCtrl.selectedTroup.unit.wound}}</DIV>
+						<DIV ID="unitCardLeadership" CLASS="unitCardIcons">{{partyDetailCtrl.selectedTroup.unit.commandment}}</DIV>
+						<DIV ID="unitCardActions" CLASS="unitCardIcons">{{partyDetailCtrl.selectedTroup.unit.action}}</DIV>
+						<DIV ID="unitCardMovement" CLASS="unitCardIcons">{{partyDetailCtrl.selectedTroup.unit.mouvement}}<br>{{partyDetailCtrl.selectedTroup.unit.vol}}</DIV>
+						<DIV ID="unitCardMinMax" CLASS="unitCardIcons">[{{partyDetailCtrl.selectedTroup.unit.min}}-{{partyDetailCtrl.selectedTroup.unit.max}}]</DIV>
+						<DIV ID="unitCardArmor" CLASS="unitCardIcons">{{partyDetailCtrl.selectedTroup.unit.armure}}</DIV>
+						<DIV ID="unitCardDefense" CLASS="unitCardIcons">{{partyDetailCtrl.selectedTroup.unit.defence}}</DIV>
+						<DIV ID="unitCardPower" CLASS="unitCardIcons" ng-show=partyDetailCtrl.IsMago(partyDetailCtrl.selectedTroup.unit)>{{partyDetailCtrl.selectedTroup.unit.magie}}</DIV>
+						<DIV ID="unitCardCost" CLASS="unitCardIcons">{{partyDetailCtrl.selectedTroup.unit.cost}}</DIV>
+						<DIV ID="unitCardStrength" CLASS="unitCardIcons">F{{partyDetailCtrl.selectedTroup.unit.force}}</DIV>
+						<DIV ID="unitCardSize" CLASS="unitCardIcons">T{{partyDetailCtrl.selectedTroup.unit.taille}}</DIV>
+						<DIV ID="unitCardArchery" CLASS="unitCardIcons" STYLE="background-Image:url(/static/img/tir{{partyDetailCtrl.selectedTroup.unit.tir}}.png);"></DIV>
 
                     </div>
 
@@ -114,7 +88,7 @@
                     </ul>
 
                     <!--select id="select " class="form-control visible-xs">
-				  <option value="$index" ng-repeat="spellTroup in partyDetailCtrl.troups.spellList" ng-click="partyDetailCtrl.setSelectedTroup(spellTroup)">{{spellTroup.spell.name}}</option> 
+				  <option value="$index" ng-repeat="spellTroup in partyDetailCtrl.troups.spellList" ng-click="partyDetailCtrl.setSelectedTroup(spellTroup)">{{spellTroup.spell.name}}</option>
 				</select-->
                 </div>
                 <div class="panel panel-default col-md-8">
