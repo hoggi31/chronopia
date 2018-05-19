@@ -27,14 +27,14 @@
 
 						<DIV ID="unitCardName" CLASS="unitCardIcons">{{partyDetailCtrl.selectedTroup.unit.name}}</DIV>
 						<DIV ID="unitCardPic" CLASS="unitCardIcons" STYLE="background-image:url({{partyDetailCtrl.selectedTroup.unit.model_pic}});"></DIV>
-						<DIV ID="unitCardArmy" CLASS="unitCardIcons" STYLE="background-image:url(/static/img/army{{partyDetailCtrl.selectedTroup.unit.army}}.png);">{{partyDetailCtrl.selectedTroup.unit.type2}}</DIV>
+						<DIV ID="unitCardArmy" CLASS="unitCardIcons" STYLE="background-image:url({{partyDetailCtrl.selectedTroup.unit.clan.model_pic}});">{{partyDetailCtrl.selectedTroup.unit.type2}}</DIV>
 						<DIV ID="unitCardWounds" CLASS="unitCardIcons">{{partyDetailCtrl.selectedTroup.unit.wound}}</DIV>
 						<DIV ID="unitCardLeadership" CLASS="unitCardIcons">{{partyDetailCtrl.selectedTroup.unit.commandment}}</DIV>
 						<DIV ID="unitCardActions" CLASS="unitCardIcons">{{partyDetailCtrl.selectedTroup.unit.action}}</DIV>
 						<DIV ID="unitCardMovement" CLASS="unitCardIcons">{{partyDetailCtrl.selectedTroup.unit.mouvement}}<br>{{partyDetailCtrl.selectedTroup.unit.vol}}</DIV>
 						<DIV ID="unitCardMinMax" CLASS="unitCardIcons">[{{partyDetailCtrl.selectedTroup.unit.min}}-{{partyDetailCtrl.selectedTroup.unit.max}}]</DIV>
 						<DIV ID="unitCardArmor" CLASS="unitCardIcons">{{partyDetailCtrl.selectedTroup.unit.armure}}</DIV>
-						<DIV ID="unitCardDefense" CLASS="unitCardIcons">{{partyDetailCtrl.selectedTroup.unit.defence}}/{{partyDetailCtrl.selectedTroup.unit.defence}}</DIV>
+						<DIV ID="unitCardDefense" CLASS="unitCardIcons">{{partyDetailCtrl.selectedTroup.unit.defence}}/{{partyDetailCtrl.selectedTroup.unit.bouclier}}</DIV>
 						<DIV ID="unitCardPower" CLASS="unitCardIcons"><!--ng-show=partyDetailCtrl.IsMago(partyDetailCtrl.selectedTroup.unit)-->{{partyDetailCtrl.selectedTroup.unit.magie}}</DIV>
 						<DIV ID="unitCardCost" CLASS="unitCardIcons">{{partyDetailCtrl.selectedTroup.unit.cost}}</DIV>
 						<DIV ID="unitCardStrength" CLASS="unitCardIcons">F{{partyDetailCtrl.selectedTroup.unit.force}}</DIV>
