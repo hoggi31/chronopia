@@ -91,6 +91,7 @@ class Unit(Card):
     
 class Army(models.Model):
     name = models.CharField(max_length=100,unique=True)
+    model_pic = models.ImageField(upload_to='armylist/cards',blank=True,null=True)
     def __unicode__(self):              # __unicode__ on Python 2
         return self.name
 
