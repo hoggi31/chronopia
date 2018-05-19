@@ -32,6 +32,8 @@ class Attack(models.Model):
     dmg=models.IntegerField(blank=True,null=True)
     type= models.CharField(max_length=20)  
     Effets = models.TextField(blank=True,null=True)  
+    portee = models.CharField(max_length=20 ,blank=True,null=True)  
+    cadence = models.CharField(max_length=20,blank=True,null=True)
     units = models.ManyToManyField('Unit',related_name="attaques",blank=True,null=True )
     
     def __str__(self):
