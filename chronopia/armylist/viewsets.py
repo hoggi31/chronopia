@@ -6,8 +6,8 @@ Created on 23 sept. 2016
 '''
 from rest_framework import viewsets, filters, response
 from django.contrib.auth.models import User
-from armylist.models import Unit,Attack,spell,Competence,Army,Army_Party,TroupUnit,TroupSpell,Party
-from armylist.serializers import UnitSerializer,CompetenceSerializer,ArmySerializer,ArmyPartySerializer,ArmyPartySerializer2,TroupesSerializer,usersSerializer,TroupSpellsSerializer,spellSerializer,TroupesSimpleSerializer,PartySerializer
+from armylist.models import Unit,Attack,spell,Competence,Army,Army_Party,TroupUnit,TroupSpell,Party,Clan
+from armylist.serializers import UnitSerializer,CompetenceSerializer,ArmySerializer,ArmyPartySerializer,ArmyPartySerializer2,TroupesSerializer,usersSerializer,TroupSpellsSerializer,spellSerializer,TroupesSimpleSerializer,PartySerializer,ClanSerializer
 from rest_framework import filters
 from rest_framework.decorators import detail_route, list_route
 
@@ -48,7 +48,9 @@ class SpellViewSet(viewsets.ModelViewSet):
     filter_class = SpellFilter
     search_fields = ('name')
     
-    
+class ClanViewSet(viewsets.ModelViewSet):
+   queryset = Party.objects.all()
+   serializer_class = ClanSerializer     
         
 class UnitViewSet(viewsets.ModelViewSet):
     queryset = Unit.objects.all()
@@ -128,3 +130,4 @@ class CompViewSet(viewsets.ModelViewSet):
 class PartyViewSet(viewsets.ModelViewSet):
    queryset = Party.objects.all()
    serializer_class = PartySerializer  
+
