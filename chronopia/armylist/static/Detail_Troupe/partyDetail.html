@@ -31,10 +31,10 @@
 						<DIV ID="unitCardWounds" CLASS="unitCardIcons">{{partyDetailCtrl.selectedTroup.unit.wound}}</DIV>
 						<DIV ID="unitCardLeadership" CLASS="unitCardIcons">{{partyDetailCtrl.selectedTroup.unit.commandment}}</DIV>
 						<DIV ID="unitCardActions" CLASS="unitCardIcons">{{partyDetailCtrl.selectedTroup.unit.action}}</DIV>
-						<DIV ID="unitCardMovement" CLASS="unitCardIcons">{{partyDetailCtrl.selectedTroup.unit.mouvement}}<br>{{partyDetailCtrl.selectedTroup.unit.vol}}</DIV>
+						<DIV ID="unitCardMovement" CLASS="unitCardIcons">{{partyDetailCtrl.selectedTroup.unit.mouvement}}<span ng-if="partyDetailCtrl.selectedTroup.unit.vol>0"><br>{{partyDetailCtrl.selectedTroup.unit.vol}}&#128330;</span></DIV>
 						<DIV ID="unitCardMinMax" CLASS="unitCardIcons">[{{partyDetailCtrl.selectedTroup.unit.min}}-{{partyDetailCtrl.selectedTroup.unit.max}}]</DIV>
 						<DIV ID="unitCardArmor" CLASS="unitCardIcons">{{partyDetailCtrl.selectedTroup.unit.armure}}</DIV>
-						<DIV ID="unitCardDefense" CLASS="unitCardIcons">{{partyDetailCtrl.selectedTroup.unit.defence}}/{{partyDetailCtrl.selectedTroup.unit.bouclier}}</DIV>
+						<DIV ID="unitCardDefense" CLASS="unitCardIcons"><span ng-class="partyDetailCtrl.selectedTroup.unit.defence>0 ? 'red':''">{{partyDetailCtrl.selectedTroup.unit.defence}}</span><span ng-if="partyDetailCtrl.selectedTroup.unit.bouclier>0"><br>{{partyDetailCtrl.selectedTroup.unit.bouclier}}</span></DIV>
 						<DIV ID="unitCardPower" CLASS="unitCardIcons"><!--ng-show=partyDetailCtrl.IsMago(partyDetailCtrl.selectedTroup.unit)-->{{partyDetailCtrl.selectedTroup.unit.magie}}</DIV>
 						<DIV ID="unitCardCost" CLASS="unitCardIcons">{{partyDetailCtrl.selectedTroup.unit.cost}}</DIV>
 						<DIV ID="unitCardStrength" CLASS="unitCardIcons">F{{partyDetailCtrl.selectedTroup.unit.force}}</DIV>
@@ -43,7 +43,7 @@
 						<DIV ID="unitCardSword" CLASS="unitCardIcons" ></DIV>
 						<DIV ID="unitCardAttacks">
 							<li class="list-group-item" ng-repeat="attaques in partyDetailCtrl.selectedTroup.unit.attaques">
-                            <strong>{{attaques.type}}</strong> {{attaques.att}} [ {{attaques.dmg}} ] {{attaques.Effets}}
+                            <strong>{{attaques.type}}</strong> &#9876;{{attaques.att}} [{{attaques.dmg}} {{attaques.Effets}}] <span ng-if="attaques.portee!=''">@{{attaques.portee}} [{{attaques.cadence}}]</span>
                         	</li>
                         </DIV>
 

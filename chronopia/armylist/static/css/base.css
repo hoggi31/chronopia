@@ -36,6 +36,11 @@ input[type="number"] {
     font-size: large;
 }
 
+.red {
+	color:red;
+	text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
 #unitCard {
 	background-image:url(/static/img/parchemin.png);
 	background-repeat:no-repeat;
@@ -117,8 +122,9 @@ input[type="number"] {
 #unitCardMovement {
 	top:125px;
 	text-align:left;
-	padding-top:10px;
+	padding-top:20px;
 	padding-left:17px;
+	line-height: 85%;
 	left:40px;
 	background-Image:url(/static/img/mouvement.png);
 }
@@ -138,6 +144,7 @@ input[type="number"] {
 	top:190px;
 	padding-top:15px;
 	left:190px;
+	line-height: 85%;
 	background-image:url(/static/img/defense.png);
 }
 #unitCardPower {
