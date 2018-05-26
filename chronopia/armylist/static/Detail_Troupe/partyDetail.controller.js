@@ -39,6 +39,18 @@ armyModule.controller("partyDetailController", ["ArmyPartyDisplay", "user", "$ro
 
     }
 
+    self.hasRangeAttack = function(attack) {
+        return (attack.portee != '');
+    }
+    self.hasFlight = function(unit) {
+        return (unit.vol> 0);
+    }
+    self.hasShield = function(unit) {
+        return (unit.bouclier > 0);
+    }
+    self.hasPositiveDefense = function(unit) {
+        return (unit.defence > 0);
+    }
     self.IsMago = function(unit) {
         return (unit.magie > 0);
     }
