@@ -197,3 +197,8 @@ input[type="number"] {
 	top:240px;left:40px;width:250px;background-size:170px 170px;
 	background-image:url(/static/img/epee.png);
 }
+#armyPartyHeader {
+	font-face:Arial;
+	font-size:13px;
+	font-weight:bold;
+}

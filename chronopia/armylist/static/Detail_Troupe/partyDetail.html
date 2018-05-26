@@ -1,5 +1,7 @@
 <div class="container-fluid">
 
+	<SPAN ID=armyPartyHeader>{{partyDetailCtrl.name}} - {{partyDetailCtrl.totalCost}} points</SPAN>
+
     <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active"><a data-target="#unitsPan" aria-controls="home" role="tab" data-toggle="tab">Unites</a></li>
         <li role="presentation"><a data-target="#spellPan" aria-controls="profile" role="tab" data-toggle="tab">Sorts</a></li>
@@ -25,7 +27,7 @@
                     <!--<div class="panel-heading">{{partyDetailCtrl.selectedTroup.unit.name}}</div>-->
                     <div class="panel-body " id="unitCard">
 
-						<DIV ID="unitCardName" CLASS="unitCardIcons">{{partyDetailCtrl.selectedTroup.unit.name}}</DIV>
+						<DIV ID="unitCardName" CLASS="unitCardIcons">{{partyDetailCtrl.selectedTroup.unit.name}} ({{partyDetailCtrl.selectedTroup.count}})</DIV>
 						<DIV ID="unitCardPic" CLASS="unitCardIcons" STYLE="background-image:url({{partyDetailCtrl.selectedTroup.unit.model_pic}});"></DIV>
 						<DIV ID="unitCardArmy" CLASS="unitCardIcons" STYLE="background-image:url({{partyDetailCtrl.selectedTroup.unit.clan.model_pic}});">{{partyDetailCtrl.selectedTroup.unit.type2}}</DIV>
 						<DIV ID="unitCardWounds" CLASS="unitCardIcons">{{partyDetailCtrl.selectedTroup.unit.wound}}</DIV>

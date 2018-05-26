@@ -6,7 +6,7 @@
             <div>
                 <div>
                     <!-- label for="docType">armees:</label -->
-                    <select class="form-control" ng-change="partyCtrl.setList()" ng-options="army.name for army in partyCtrl.armyList" placeholder="Select army" ng-model="partyCtrl.selectedArmy" required>     
+                    <select class="form-control" ng-change="partyCtrl.setList()" ng-options="army.name for army in partyCtrl.armyList" placeholder="Select army" ng-model="partyCtrl.selectedArmy" required>
 			</select>
                 </div>
                 <!-- Nav tabs -->
@@ -18,9 +18,9 @@
                 <!-- Tab panes -->
                 <label>
 	<ul class="nav nav-pills visible-xs" role="tablist">
-		 <li role="presentation" ><a>Cout <span class="label label-primary">{{partyCtrl.totalCost}}</span></a></li>
-		 <li role="presentation" ><a>Archer <span ng-class="{'label label-success': partyCtrl.oktir,'label label-danger': !partyCtrl.oktir}">{{partyCtrl.totaltir}}</span></a></li>
-		 <li role="presentation" ><a>Indep. <span ng-class="{'label label-success': partyCtrl.okindep,'label label-danger': !partyCtrl.okindep}">{{partyCtrl.totalindep}}</span></a></li>
+		<li role="presentation"><a>Cout <span class="label label-primary">{{partyCtrl.totalCost}}</span></a></li>
+		<li role="presentation"><a>Archerie <span ng-class="{'label label-success': partyCtrl.oktir,'label label-danger': !partyCtrl.oktir}">{{partyCtrl.totaltir}} ({{partyCtrl.tirratio}}%)</span></a></li>
+		<li role="presentation"><a>Indep. <span ng-class="{'label label-success': partyCtrl.okindep,'label label-danger': !partyCtrl.okindep}">{{partyCtrl.totalindep}} ({{partyCtrl.countinde}}/{{partyCtrl.countunit}})</span></a></li>
 	</ul>
   </label>
 
@@ -49,10 +49,10 @@
                                     <div class="panel-heading" role="tab" id="headingOne">
                                         <h4 class="panel-title">
                                             <span ng-class="{'glyphicon glyphicon-ok' : unit.tir}">
-					      
+
 					      	</span>
                                             <a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne-{{$index}}" aria-expanded="true" aria-controls="collapseOne">
-					          {{unit.name}}	       {{unit.type2}}	{{unit.min}}  {{unit.max}}			                  
+					          {{unit.name}}	       {{unit.type2}}	{{unit.min}}  {{unit.max}}
 					        </a>
                                             <span class="glyphicon glyphicon-plus pull-right iconelist" ng-touch="partyCtrl.addtroupe(unit,1)" ng-click="partyCtrl.addtroupe(unit,1)"></span>
                                             <span class="CountLabel visible-xs pull-right" ng-model="unit.count">{{unit.count}}</span>
@@ -109,7 +109,7 @@
                                 <div class="panel-heading" role="tab" id="headingOne">
                                     <h4 class="panel-title">
                                         <a role="button" data-toggle="collapsespell" data-parent="#accordionSpell" data-target="#collapseOne1-{{$index}}" aria-expanded="true" aria-controls="accordionSpell">
-			          {{spell.name}}	
+			          {{spell.name}}
 			        </a>
                                         <span class="glyphicon glyphicon-plus pull-right iconelist" ng-click="partyCtrl.addSpell(spell,1)" ng-touch="partyCtrl.addSpell(spell,1)"></span>
                                         <span class="CountLabel visible-xs pull-right" ng-model="spell.count">{{spell.count}}</span>
@@ -152,8 +152,8 @@
                     </form>
                     <ul class="nav nav-pills" role="tablist">
                         <li role="presentation"><a>Cout <span class="label label-primary">{{partyCtrl.totalCost}}</span></a></li>
-                        <li role="presentation"><a>Archer <span ng-class="{'label label-success': partyCtrl.oktir,'label label-danger': !partyCtrl.oktir}">{{partyCtrl.totaltir}}</span></a></li>
-                        <li role="presentation"><a>Indep. <span ng-class="{'label label-success': partyCtrl.okindep,'label label-danger': !partyCtrl.okindep}">{{partyCtrl.totalindep}}</span></a></li>
+                        <li role="presentation"><a>Archerie <span ng-class="{'label label-success': partyCtrl.oktir,'label label-danger': !partyCtrl.oktir}">{{partyCtrl.totaltir}} ({{partyCtrl.tirratio}}%)</span></a></li>
+                        <li role="presentation"><a>Indep. <span ng-class="{'label label-success': partyCtrl.okindep,'label label-danger': !partyCtrl.okindep}">{{partyCtrl.totalindep}} ({{partyCtrl.countinde}}/{{partyCtrl.countunit}})</span></a></li>
                     </ul>
                 </div>
                 <div class="panel-body">

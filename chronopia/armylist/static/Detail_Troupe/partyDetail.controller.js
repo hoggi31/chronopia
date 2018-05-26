@@ -14,7 +14,9 @@ armyModule.controller("partyDetailController", ["ArmyPartyDisplay", "user", "$ro
         troupsPromise.$promise.then(function(res) {
             console.log(res);
             self.troups = res;
-
+	    self.name = res.name;
+            self.totalCost = res.totalCost;
+      
             self.selectedTroup = self.troups.unitList[0];
         });
 
@@ -43,13 +45,13 @@ armyModule.controller("partyDetailController", ["ArmyPartyDisplay", "user", "$ro
         return (attack.portee != '');
     }
     self.hasFlight = function(unit) {
-        return (unit.vol> 0);
+        return (!angular.isUndefined(unit) && unit.vol> 0);
     }
     self.hasShield = function(unit) {
-        return (unit.bouclier > 0);
+        return (!angular.isUndefined(unit) && unit.bouclier > 0);
     }
     self.hasPositiveDefense = function(unit) {
-        return (unit.defence > 0);
+        return (!angular.isUndefined(unit) && unit.defence > 0);
     }
     self.IsMago = function(unit) {
         return (unit.magie > 0);

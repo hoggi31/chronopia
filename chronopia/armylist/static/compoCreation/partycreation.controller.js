@@ -31,6 +31,8 @@ armyModule.controller("partyCreationController", ["army", "user", "ArmyPartyDisp
 
     self.oktir = true;
     self.okindep = true;
+    
+    self.tirratio = 0;
 
     self.updateFilter = function(aType) {
         self.filter = {};
@@ -75,8 +77,9 @@ armyModule.controller("partyCreationController", ["army", "user", "ArmyPartyDisp
             self.counttir = res.counttir;
             self.countinde = res.countinde;
             self.countunit = res.countunit;
-            self.oktir = ((self.totaltir / self.totalCost) < 0.3)
-            self.okindep = ((self.countinde / self.countunit) < 0.5)
+            self.tirratio = parseInt(self.totaltir / self.totalCost * 100);
+            self.oktir = (self.tirratio <= 40)
+            self.okindep = ((self.countinde / self.countunit) <= 0.5)
 
         });
     }

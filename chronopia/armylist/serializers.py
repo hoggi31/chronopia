@@ -137,7 +137,7 @@ class ArmyPartySerializer2(serializers.ModelSerializer):
     #army = ArmySerializer()
     class Meta:
        model = Army_Party
-       fields = ('id','unitList','spellList','name','army','author')   
+       fields = ('id','unitList','spellList','name','army','author','totalCost')   
        read_only_fields = ('id','author') 
        
 class PartySerializer(serializers.ModelSerializer):
