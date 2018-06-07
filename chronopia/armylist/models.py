@@ -40,7 +40,7 @@ class Attack(models.Model):
         return 'type {type}/ att{att} / dmg{dmg}'.format(type=self.type, att=self.att,dmg=self.dmg)
     
 class Competence(models.Model):
-    name   = models.TextField(unique=True)
+    name   = models.TextField(unique=False)
     description = models.TextField(blank=True,null=True )
     dim = models.IntegerField(blank=True,null=True )
     units = models.ManyToManyField('Unit',related_name="competences",blank=True,null=True )
