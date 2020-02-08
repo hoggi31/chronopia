@@ -159,7 +159,7 @@
                 <div class="panel-body">
                     <div class="alert alert-success" role="alert" ng-repeat="unittroups in partyCtrl.party.unitList">
                         <button type="button" class="close" aria-label="Close" ng-click="partyCtrl.removetroupe(unittroups)"><span aria-hidden="true">&times;</span></button>
-                        <!--span class="badge">{{unittroups.count}}</span-->{{unittroups.unit.name}}
+                        <!--span class="badge">{{unittroups.count}}</span--><B>{{unittroups.unit.name}}</B> ({{unittroups.unit.cost*unittroups.count}} pts)
                         <input type="number" class="col-lg-2 formAppinputNB" ng-change="partyCtrl.updateTroup(unittroups)" ng-model="unittroups.count" />
                     </div>
                 </div>
@@ -170,7 +170,7 @@
                 <div class="panel-body">
                     <div class="alert alert-info" role="alert" ng-repeat="spelltroups in partyCtrl.party.spellList">
                         <button type="button" class="close" aria-label="Close" ng-click="partyCtrl.addSpell(spelltroups.spell,-1)"><span aria-hidden="true">&times;</span></button>
-                        <span class="badge">{{spelltroups.count}}</span> {{spelltroups.spell.name}}
+                        <span class="badge">{{spelltroups.count}}</span> <B>{{spelltroups.spell.name}}</B> ({{spelltroups.spell.cost}} pts)
 
                     </div>
                 </div>
