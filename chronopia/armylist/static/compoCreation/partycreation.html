@@ -84,7 +84,7 @@
                                                     </div>
                                                     <h4>Attaques</h4>
                                                     <p ng-repeat="atk in unit.attaques">
-                                                        <b>{{atk.type}}:</b> Attaques:{{atk.att}} dmg:{{atk.dmg}} {{atk.Effets}}
+                                                        <b>{{atk.type}}:</b> Attaques:{{atk.att}} dmg:{{atk.dmg}} {{atk.Effets}} <span ng-if="partyCtrl.hasRangeAttack(atk)">@{{atk.portee}} [{{atk.cadence}}]</span>
                                                     </p>
                                                 </div>
                                             </div>

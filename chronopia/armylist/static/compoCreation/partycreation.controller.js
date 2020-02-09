@@ -84,7 +84,9 @@ armyModule.controller("partyCreationController", ["army", "user", "ArmyPartyDisp
         });
     }
 
-
+    self.hasRangeAttack = function(attack) {
+        return (attack.portee != '');
+    }
 
     self.setList = function() {
         self.setListUnit();
