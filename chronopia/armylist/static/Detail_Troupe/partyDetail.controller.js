@@ -46,8 +46,10 @@ armyModule.controller("partyDetailController", ["ArmyPartyDisplay", "user", "$ro
 
     }
 
-    self.remove= function(span) {
-        span.parentNode.className='hidden';
+    self.removeTroup = function(unit) {
+	for (var i = 0 ; i < self.troups.unitList.length;i++) {if (self.troups.unitList[i].unit.id==unit) break;}
+	if (i<self.troups.unitList.length) self.troups.unitList.splice(i, 1);
+        self.selectedTroup = self.troups.unitList[0];
     }
 
     self.hasRangeAttack = function(attack) {
