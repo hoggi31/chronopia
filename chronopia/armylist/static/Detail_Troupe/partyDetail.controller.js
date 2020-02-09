@@ -41,6 +41,7 @@ armyModule.controller("partyDetailController", ["ArmyPartyDisplay", "user", "$ro
 
     }
 
+
     self.hasRangeAttack = function(attack) {
         return (attack.portee != '');
     }
