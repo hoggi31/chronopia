@@ -1,5 +1,10 @@
 var armyModule = angular.module("armyCreationModule");
 
+function remove(span) {
+        span.parentNode.className='hidden';
+    }
+    
+
 armyModule.controller("partyDetailController", ["ArmyPartyDisplay", "user", "$routeParams", function(ArmyPartyDisplay, user, $routeParams) {
     var self = this;
     self.partyTroupId = $routeParams.ID;
@@ -41,6 +46,9 @@ armyModule.controller("partyDetailController", ["ArmyPartyDisplay", "user", "$ro
 
     }
 
+    self.remove= function(span) {
+        span.parentNode.className='hidden';
+    }
 
     self.hasRangeAttack = function(attack) {
         return (attack.portee != '');
