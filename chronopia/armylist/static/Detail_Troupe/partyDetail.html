@@ -101,12 +101,20 @@
                     <div class="panel-body ">
                         <img class="col-md-3 col-xs-6" src="{{partyDetailCtrl.selectedTroup.spell.model_pic}}"></img>
                         <div class="col-md-9">
-                            <p>{{partyDetailCtrl.selectedTroup.spell.description}}</p>
-                            <p>cout={{partyDetailCtrl.selectedTroup.spell.cost}}</p>
-                            <p>lvl = {{partyDetailCtrl.selectedTroup.spell.level}}</p>
-                            <p>Action= {{partyDetailCtrl.selectedTroup.spell.action}}</p>
-                            <p>portee= {{partyDetailCtrl.selectedTroup.spell.portee}}</p>
-                            <p>R={{partyDetailCtrl.selectedTroup.spell.resistance}}</p>
+                                    	<table width=100%>
+                                    	<TR>
+                                    		<TD COLSPAN=3><I>{{partyDetailCtrl.selectedTroup.spell.description}}</I></TD>
+                                    	</TR>
+                                       	<TR>
+											<TD>Niveau: {{partyDetailCtrl.selectedTroup.spell.level}}</TD>
+											<TD>Action(s):  {{partyDetailCtrl.selectedTroup.spell.action}}</TD>
+                                    	</TR>
+                                       	<TR>
+											<TD>Co&ucirc;t: {{partyDetailCtrl.selectedTroup.spell.cost}} pts</TD>
+											<TD>Portee: {{partyDetailCtrl.selectedTroup.spell.portee}}</TD>
+											<TD>R&eacute;sistance: {{partyDetailCtrl.selectedTroup.spell.resistance}}</TD>
+                                    	</TR>
+                                    	</TABLE>
                         </div>
                     </div>
                 </div>

@@ -118,11 +118,20 @@
                                 </div>
                                 <div id="collapseOne1-{{$index}}" class="panel-collapse collapsespell" role="tabpanel" aria-labelledby="headingOne">
                                     <div class="panel-body">
-                                        <p>cout={{spell.cost}}</p>
-                                        <p>lvl = {{spell.level}}</p>
-                                        <p>Action= {{spell.action}}</p>
-                                        <p>portee= {{spell.portee}}</p>
-                                        <p>R={{spell.resistance}}</p>
+                                    	<table width=100%>
+                                    	<TR>
+                                    		<TD COLSPAN=3><I>{{spell.description}}</I></TD>
+                                    	</TR>
+                                       	<TR>
+											<TD>Niveau: {{spell.level}}</TD>
+											<TD>Action(s):  {{spell.action}}</TD>
+                                    	</TR>
+                                       	<TR>
+											<TD>Co&ucirc;t: {{spell.cost}} pts</TD>
+											<TD>Portee: {{spell.portee}}</TD>
+											<TD>R&eacute;sistance: {{spell.resistance}}</TD>
+                                    	</TR>
+                                    	</TABLE>
 
                                     </div>
                                 </div>
@@ -151,7 +160,7 @@
                         <button type="submit" class="btn btn-primary mb-2" ng-click="partyCtrl.updatepartyname()">update</button>
                     </form>
                     <ul class="nav nav-pills" role="tablist">
-                        <li role="presentation"><a>Cout <span class="label label-primary">{{partyCtrl.totalCost}}</span></a></li>
+                        <li role="presentation"><a>Valeur <span class="label label-primary">{{partyCtrl.totalCost}} pts</span></a></li>
                         <li role="presentation"><a>Archerie <span ng-class="{'label label-success': partyCtrl.oktir,'label label-danger': !partyCtrl.oktir}">{{partyCtrl.totaltir}} ({{partyCtrl.tirratio}}%)</span></a></li>
                         <li role="presentation"><a>Indep. <span ng-class="{'label label-success': partyCtrl.okindep,'label label-danger': !partyCtrl.okindep}">{{partyCtrl.totalindep}} ({{partyCtrl.countinde}}/{{partyCtrl.countunit}})</span></a></li>
                     </ul>
