@@ -85,7 +85,6 @@ armyModule.controller("partyCreationController", ["army", "user", "ArmyPartyDisp
     }
 
     self.hasCompetences = function(unit) {
-    console.log(unit);
         return (unit.competences.length>0);
     }
 

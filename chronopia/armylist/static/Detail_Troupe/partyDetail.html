@@ -1,6 +1,6 @@
 <div class="container-fluid">
 
-	<SPAN ID=armyPartyHeader>{{partyDetailCtrl.name}} - {{partyDetailCtrl.totalCost}} points</SPAN>
+	<SPAN ID=armyPartyHeader><H4>{{partyDetailCtrl.name}} - {{partyDetailCtrl.totalCost}} pts</H4></SPAN>
 
     <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active"><a data-target="#unitsPan" aria-controls="home" role="tab" data-toggle="tab">Unites</a></li>
@@ -18,7 +18,7 @@
                              <button type="button" class="close" aria-label="Close" ng-click="partyDetailCtrl.removeTroup(unitTroup.unit.id)">&nbsp;<span aria-hidden="true">&times;</span></button>
                              <span class="unitName">{{unitTroup.unit.name}}</span>
                              <span class="badge">{{unitTroup.count}}</span>
-                             <span class="badge">{{unitTroup.unit.cost*unitTroup.count}} pts</span>
+                             <span class="badge points">{{unitTroup.unit.cost*unitTroup.count}}</span>
                         </li>
                     </ul>
 
@@ -27,10 +27,11 @@
 				</select-->
 
                 </div>
-                <div class="panel panel-default col-md-8">
+                <div ng-show="partyDetailCtrl.showCard" class="panel panel-default col-md-8" overlay>
                     <!--<div class="panel-heading">{{partyDetailCtrl.selectedTroup.unit.name}}</div>-->
-                    <div class="panel-body " id="unitCard">
+                    <div class="panel-body " id="unitCard" ng-click="partyDetailCtrl.hideCard()">
 
+						<DIV ID="unitCardClose" CLASS="unitCardIcons" ng-click="partyDetailCtrl.hideCard()">X</DIV>
 						<DIV ID="unitCardName" CLASS="unitCardIcons">{{partyDetailCtrl.selectedTroup.unit.name}} ({{partyDetailCtrl.selectedTroup.count}})</DIV>
 						<DIV ID="unitCardPic" CLASS="unitCardIcons" STYLE="background-image:url({{partyDetailCtrl.selectedTroup.unit.model_pic}});"></DIV>
 						<DIV ID="unitCardArmy" CLASS="unitCardIcons" STYLE="background-image:url({{partyDetailCtrl.selectedTroup.unit.clan.model_pic}});">{{partyDetailCtrl.selectedTroup.unit.type2}}</DIV>

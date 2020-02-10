@@ -4,6 +4,7 @@ armyModule.controller("partyDetailController", ["ArmyPartyDisplay", "user", "$ro
     var self = this;
     self.partyTroupId = $routeParams.ID;
     var promUser = user.myself();
+    showCard: boolean = false ; // hidden by default
 
     promUser.$promise.then(function(res) {
         var troupsPromise = ArmyPartyDisplay.get({ armyParty: self.partyTroupId, author: res.id });
@@ -23,12 +24,14 @@ armyModule.controller("partyDetailController", ["ArmyPartyDisplay", "user", "$ro
     });
 
 
-
     self.setSelectedTroup = function(unit) {
         self.selectedTroup = unit;
-
+        self.showCard=true;
     }
 
+    self.hideCard = function() {
+    	self.showCard=false;
+    }
 
 
     self.isSelect = function(unit) {
@@ -50,6 +53,7 @@ armyModule.controller("partyDetailController", ["ArmyPartyDisplay", "user", "$ro
     self.hasAttackEffect = function(attack) {
         return (attack.Effets != null && attack.Effets != " " && attack.Effets != "");
     }
+    
     self.hasRangeAttack = function(attack) {
         return (attack.portee != '');
     }
