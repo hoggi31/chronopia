@@ -230,3 +230,11 @@ input[type="number"] {
 	font-weight:normal;
 	font-style:italic;
 }
+.carac{
+	font-face:Arial;
+	font-size:11px;
+	font-weight:normal;
+}
+.blood{
+	color:#990011;
+}

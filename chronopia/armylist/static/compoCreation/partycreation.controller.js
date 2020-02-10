@@ -84,6 +84,15 @@ armyModule.controller("partyCreationController", ["army", "user", "ArmyPartyDisp
         });
     }
 
+    self.hasCompetences = function(unit) {
+    console.log(unit);
+        return (unit.competences.length>0);
+    }
+
+    self.hasAttackEffect = function(attack) {
+        return (attack.Effets != null && attack.Effets != " " && attack.Effets != "");
+    }
+
     self.hasRangeAttack = function(attack) {
         return (attack.portee != '');
     }

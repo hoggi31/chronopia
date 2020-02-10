@@ -49,7 +49,9 @@
 						<DIV ID="unitCardSword" CLASS="unitCardIcons" ></DIV>
 						<DIV ID="unitCardAttacks">
 							<li class="list-group-item" ng-repeat="attaques in partyDetailCtrl.selectedTroup.unit.attaques">
-                            <strong>{{attaques.type}}</strong> &#9876;{{attaques.att}} [{{attaques.dmg}} {{attaques.Effets}}] <span ng-if="partyDetailCtrl.hasRangeAttack(attaques)">@{{attaques.portee}} [{{attaques.cadence}}]</span>
+                            <strong>{{attaques.type}}</strong> &#127922;{{attaques.att}} <span class="glyphicon glyphicon-tint blood"></span>{{attaques.dmg}}
+                            <span ng-if="partyDetailCtrl.hasAttackEffect(attaques)">&#127183;{{attaques.Effets}}</span>
+                            <span ng-if="partyDetailCtrl.hasRangeAttack(attaques)">&#127919;{{attaques.portee}} &#9851;{{attaques.cadence}}</span>
                         	</li>
                         </DIV>
 
@@ -114,13 +116,13 @@
                                     		<TD COLSPAN=3><I>{{partyDetailCtrl.selectedTroup.spell.description}}</I></TD>
                                     	</TR>
                                        	<TR>
-											<TD>Niveau: {{partyDetailCtrl.selectedTroup.spell.level}}</TD>
-											<TD>Action(s):  {{partyDetailCtrl.selectedTroup.spell.action}}</TD>
-											<TD>R&eacute;sist: {{partyDetailCtrl.selectedTroup.spell.resistance}}</TD>
+											<TD><span class="badge carac">Niveau</span> {{partyDetailCtrl.selectedTroup.spell.level}}</TD>
+											<TD><span class="badge carac">Action(s)</span>  {{partyDetailCtrl.selectedTroup.spell.action}}</TD>
+											<TD><span class="badge carac">R&eacute;sist</span> {{partyDetailCtrl.selectedTroup.spell.resistance}}</TD>
                                     	</TR>
                                        	<TR>
-											<TD>Co&ucirc;t: {{partyDetailCtrl.selectedTroup.spell.cost}} pts</TD>
-											<TD colspan=2>Portee: {{partyDetailCtrl.selectedTroup.spell.portee}}</TD>
+											<TD><span class="badge carac">Co&ucirc;t</span> {{partyDetailCtrl.selectedTroup.spell.cost}} pts</TD>
+											<TD colspan=2><span class="badge carac">Portee</span> {{partyDetailCtrl.selectedTroup.spell.portee}}</TD>
                                     	</TR>
                                     	</TABLE>
                         </div>

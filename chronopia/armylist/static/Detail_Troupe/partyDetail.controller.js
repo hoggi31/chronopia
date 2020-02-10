@@ -47,6 +47,9 @@ armyModule.controller("partyDetailController", ["ArmyPartyDisplay", "user", "$ro
         self.selectedTroup = self.troups.unitList[0];
     }
 
+    self.hasAttackEffect = function(attack) {
+        return (attack.Effets != null && attack.Effets != " " && attack.Effets != "");
+    }
     self.hasRangeAttack = function(attack) {
         return (attack.portee != '');
     }

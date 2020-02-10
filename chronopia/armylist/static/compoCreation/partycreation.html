@@ -48,14 +48,15 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading" role="tab" id="headingOne">
                                         <h4 class="panel-title">
-                                            <span ng-class="{'glyphicon glyphicon-screenshot' : unit.tir}" Title="Unité d'archerie"></span>
+                                            <!--<span ng-class="{'glyphicon glyphicon-screenshot' : unit.tir}" Title="Unité d'archerie"></span>-->
+                                            {{unit.tir=="1"?"&#127993;":""}}
                                             <a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne-{{$index}}" aria-expanded="true" aria-controls="collapseOne">
 					          					<span class="unitName">{{unit.name}}</span>
 					          					<span class="badge points">{{unit.cost}} pts</span>
 					          					<span class="badge">{{unit.min}}-{{unit.max}}</span>
 					          				</a>
                                             <span class="glyphicon glyphicon-plus pull-right iconelist" ng-touch="partyCtrl.addtroupe(unit,1)" ng-click="partyCtrl.addtroupe(unit,1)"></span>
-                                            <span class="CountLabel visible-xs pull-right" ng-model="unit.count">{{unit.count}}</span>
+                                            <!--<span class="CountLabel visible-xs pull-right" ng-model="unit.count">{{unit.count}}</span>-->
                                             <!--span class="glyphicon glyphicon-minus pull-right iconelist" ng-touch="partyCtrl.addtroupe(unit,-1)" ng-click="partyCtrl.addtroupe(unit,-1)"></span-->
 
                                         </h4>
@@ -64,28 +65,62 @@
                                         <div class="panel-body">
                                             <div class="row">
                                                 <div class="col-lg-7">
-                                                    <p>{{unit.type}}</p>
-                                                    <p>Action : {{unit.action}}</p>
-                                                    <p>Mouvement : {{unit.mouvement}}</p>
-                                                    <p>Blessure : {{unit.wound}}</p>
-                                                    <p>Commandement : {{unit.commandment}}</p>
-                                                    <p>defence : {{unit.defence}}</p>
-                                                    <p>Armure : {{unit.armure}}</p>
-                                                    <p>force : {{unit.force}}</p>
-                                                    <p>taille : {{unit.taille}}</p>
-                                                    <p>magie : {{unit.magie}}</p>
-                                                    <p>Type :{{unit.type2}}</p>
-
+                                                	<table width=100%>
+                                                	<TR>
+                                                	<TD>
+                                                		<span class="badge carac">ACT</span> {{unit.action}}
+                                                	</TD>
+                                                	<TD>
+                                                		<span class="badge carac">MVT</span> {{unit.mouvement}}
+                                                	</TD>
+                                                	<TD>
+                                                		<span class="badge carac">HP</span> {{unit.wound}}
+                                                	</TD>
+                                                	</TR><TR>
+                                                	<TD>
+                                                		<span class="badge carac">ARM</span> {{unit.armure}}
+                                                	</TD>
+                                                	<TD>
+                                                		<span class="badge carac">DEF/B</span> {{unit.defence}} / {{unit.bouclier>0?unit.bouclier:0}}
+                                                	</TD>
+                                                	<TD>
+                                                		<span class="badge carac">CD</span> {{unit.commandment}}
+                                                	</TD>
+                                                	</TR><TR>
+                                                	<TD>
+                                                		<span class="badge carac">PW</span> {{unit.magie>0?unit.magie:"-"}}
+                                                	</TD>
+                                                	<TD>
+                                                		<span class="badge carac">F</span> {{unit.force}}
+                                                	</TD>
+                                                	<TD>
+                                                		<span class="badge carac">T</span> {{unit.taille}}
+                                                	</TD>
+                                                	<TR>
+                                                	<TD COLSPAN=3>
+                                                		<span class="badge carac">Type</span> {{unit.type}} - {{unit.type2}} {{unit.tir=="1"?"- Archerie":""}}
+                                                	</TD>
+                                                	</TR>
+                                                	<TR>
+                                                	<TD COLSPAN=3>
+                                                		<span class="badge carac">Clan</span> {{unit.clan.name}}
+                                                	</TD>
+                                                	</TR>
+                                                	</TABLE>
                                                 </div>
 
                                                 <div class="col-lg-5">
-                                                    <h4>Competences</h4>
+                                                    <span ng-if="partyCtrl.hasCompetences(unit)"class="badge carac">Competences</span>
                                                     <div ng-repeat="competence in unit.competences">
                                                         <b>{{competence.name}}:</b> {{competence.description}}
                                                     </div>
-                                                    <h4>Attaques</h4>
+                                                    <span class="badge carac">Attaques</span>
                                                     <p ng-repeat="atk in unit.attaques">
-                                                        <b>{{atk.type}}:</b> Attaques:{{atk.att}} dmg:{{atk.dmg}} {{atk.Effets}} <span ng-if="partyCtrl.hasRangeAttack(atk)">@{{atk.portee}} [{{atk.cadence}}]</span>
+                                                        <b>{{atk.type}}:</b> &#127922;{{atk.att}}
+                                                        <!-- unknown in chrome android, ok chrome pc &#129656;-->
+                                                        <span class="glyphicon glyphicon-tint blood"></span>{{atk.dmg}}
+                                                        <span ng-if="partyCtrl.hasAttackEffect(atk)">&#127183;{{atk.Effets}}</span>
+                                                        <span ng-if="partyCtrl.hasRangeAttack(atk)">&#127919;{{atk.portee}} &#9851;{{atk.cadence}}</span>
                                                     </p>
                                                 </div>
                                             </div>
@@ -125,13 +160,13 @@
                                     		<TD COLSPAN=3><I>{{spell.description}}</I></TD>
                                     	</TR>
                                        	<TR>
-											<TD>Niveau: {{spell.level}}</TD>
-											<TD>Action(s):  {{spell.action}}</TD>
-											<TD>R&eacute;sist: {{spell.resistance}}</TD>
+											<TD><span class="badge carac">Niveau</span> {{spell.level}}</TD>
+											<TD><span class="badge carac">Action(s)</span>  {{spell.action}}</TD>
+											<TD><span class="badge carac">R&eacute;sist</span> {{spell.resistance}}</TD>
                                     	</TR>
                                        	<TR>
-											<TD>Co&ucirc;t: {{spell.cost}} pts</TD>
-											<TD colspan=2>Portee: {{spell.portee}}</TD>
+											<TD><span class="badge carac">Co&ucirc;t</span> {{spell.cost}} pts</TD>
+											<TD colspan=2><span class="badge carac">Portee</span> {{spell.portee}}</TD>
                                     	</TR>
                                     	</TABLE>
 
