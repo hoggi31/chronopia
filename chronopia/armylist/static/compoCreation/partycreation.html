@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <h1 class="visible-xs">{{partyCtrl.party.name}}</h1>
+    <h2 class="visible-xs">{{partyCtrl.party.name}}</h2>
 
     <div class="row">
         <div class="col-lg-5">
@@ -18,9 +18,9 @@
                 <!-- Tab panes -->
                 <label>
 	<ul class="nav nav-pills visible-xs" role="tablist">
-		<li role="presentation"><a>Cout <span class="label label-primary">{{partyCtrl.totalCost}}</span></a></li>
-		<li role="presentation"><a>Archerie <span ng-class="{'label label-success': partyCtrl.oktir,'label label-danger': !partyCtrl.oktir}">{{partyCtrl.totaltir}} ({{partyCtrl.tirratio}}%)</span></a></li>
-		<li role="presentation"><a>Indep. <span ng-class="{'label label-success': partyCtrl.okindep,'label label-danger': !partyCtrl.okindep}">{{partyCtrl.totalindep}} ({{partyCtrl.countinde}}/{{partyCtrl.countunit}})</span></a></li>
+		<li role="presentation"><a>&#x1f4b0; <span class="label label-primary">{{partyCtrl.totalCost}} pts</span></a></li>
+		<li role="presentation"><a>&#127993; <span ng-class="{'label label-success': partyCtrl.oktir,'label label-danger': !partyCtrl.oktir}">{{partyCtrl.totaltir}} ({{partyCtrl.tirratio}}%)</span></a></li>
+		<li role="presentation"><a>&#x1f451; <span ng-class="{'label label-success': partyCtrl.okindep,'label label-danger': !partyCtrl.okindep}">{{partyCtrl.totalindep}} ({{partyCtrl.countinde}}/{{partyCtrl.countunit}})</span></a></li>
 	</ul>
   </label>
 
@@ -197,9 +197,9 @@
                         <button type="submit" class="btn btn-primary mb-2" ng-click="partyCtrl.updatepartyname()">update</button>
                     </form>
                     <ul class="nav nav-pills" role="tablist">
-                        <li role="presentation"><a>Valeur <span class="label label-primary">{{partyCtrl.totalCost}} pts</span></a></li>
-                        <li role="presentation"><a>Archerie <span ng-class="{'label label-success': partyCtrl.oktir,'label label-danger': !partyCtrl.oktir}">{{partyCtrl.totaltir}} ({{partyCtrl.tirratio}}%)</span></a></li>
-                        <li role="presentation"><a>Indep. <span ng-class="{'label label-success': partyCtrl.okindep,'label label-danger': !partyCtrl.okindep}">{{partyCtrl.totalindep}} ({{partyCtrl.countinde}}/{{partyCtrl.countunit}})</span></a></li>
+                        <li role="presentation"><a>&#x1f4b0; <span class="label label-primary">{{partyCtrl.totalCost}} pts</span></a></li>
+                        <li role="presentation"><a>&#127993; <span ng-class="{'label label-success': partyCtrl.oktir,'label label-danger': !partyCtrl.oktir}">{{partyCtrl.totaltir}} ({{partyCtrl.tirratio}}%)</span></a></li>
+                        <li role="presentation"><a>&#x1f451; <span ng-class="{'label label-success': partyCtrl.okindep,'label label-danger': !partyCtrl.okindep}">{{partyCtrl.totalindep}} ({{partyCtrl.countinde}}/{{partyCtrl.countunit}})</span></a></li>
                     </ul>
                 </div>
                 <div class="panel-body">
