@@ -109,8 +109,9 @@
                                 <div class="panel-heading" role="tab" id="headingOne">
                                     <h4 class="panel-title">
                                         <a role="button" data-toggle="collapsespell" data-parent="#accordionSpell" data-target="#collapseOne1-{{$index}}" aria-expanded="true" aria-controls="accordionSpell">
-			          {{spell.name}}
-			        </a>
+											<span class="badge spellCollege">{{spell.name.substring(1,spell.name.indexOf(']'))}}</span>
+											<span class="spellName">{{spell.name.substring(spell.name.indexOf(']')+1)}}</span>
+								        </a>
                                         <span class="glyphicon glyphicon-plus pull-right iconelist" ng-click="partyCtrl.addSpell(spell,1)" ng-touch="partyCtrl.addSpell(spell,1)"></span>
                                         <span class="CountLabel visible-xs pull-right" ng-model="spell.count">{{spell.count}}</span>
                                         <span class="glyphicon glyphicon-minus pull-right iconelist" ng-click="partyCtrl.addSpell(spell,-1)" ng-touch="partyCtrl.addSpell(spell,-1)"></span>
@@ -125,11 +126,11 @@
                                        	<TR>
 											<TD>Niveau: {{spell.level}}</TD>
 											<TD>Action(s):  {{spell.action}}</TD>
+											<TD>R&eacute;sist: {{spell.resistance}}</TD>
                                     	</TR>
                                        	<TR>
 											<TD>Co&ucirc;t: {{spell.cost}} pts</TD>
-											<TD>Portee: {{spell.portee}}</TD>
-											<TD>R&eacute;sistance: {{spell.resistance}}</TD>
+											<TD colspan=2>Portee: {{spell.portee}}</TD>
                                     	</TR>
                                     	</TABLE>
 

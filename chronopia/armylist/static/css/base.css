@@ -202,3 +202,14 @@ input[type="number"] {
 	font-size:13px;
 	font-weight:bold;
 }
+.spellCollege {
+	font-face:Arial;
+	font-size:10px;
+	font-weight:normal;
+	font-style:italic;
+}
+.spellName {
+	font-face:Arial;
+	font-size:13px;
+	font-weight:bold;
+}

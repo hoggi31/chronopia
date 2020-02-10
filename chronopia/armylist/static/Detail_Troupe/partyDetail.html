@@ -93,7 +93,11 @@
                 <div class="list-group col col-md-4">
 
                     <ul class="list-group">
-                        <li class="list-group-item" ng-class="{'active':partyDetailCtrl.isSelect(spellTroup)}" ng-repeat="spellTroup in partyDetailCtrl.troups.spellList" ng-click="partyDetailCtrl.setSelectedTroup(spellTroup)">{{spellTroup.spell.name}}</li>
+                        <li class="list-group-item" ng-class="{'active':partyDetailCtrl.isSelect(spellTroup)}" ng-repeat="spellTroup in partyDetailCtrl.troups.spellList" ng-click="partyDetailCtrl.setSelectedTroup(spellTroup)">
+                        	<span class="badge spellCollege">{{spellTroup.spell.name.substring(1,spellTroup.spell.name.indexOf(']'))}}</span>
+                        	<span class="spellName">{{spellTroup.spell.name.substring(spellTroup.spell.name.indexOf(']')+1)}}</span>
+                       	</li>
+                        <!--str.find(str, beg=0, end=len(string))-->
                     </ul>
 
                     <!--select id="select " class="form-control visible-xs">
@@ -112,11 +116,11 @@
                                        	<TR>
 											<TD>Niveau: {{partyDetailCtrl.selectedTroup.spell.level}}</TD>
 											<TD>Action(s):  {{partyDetailCtrl.selectedTroup.spell.action}}</TD>
+											<TD>R&eacute;sist: {{partyDetailCtrl.selectedTroup.spell.resistance}}</TD>
                                     	</TR>
                                        	<TR>
 											<TD>Co&ucirc;t: {{partyDetailCtrl.selectedTroup.spell.cost}} pts</TD>
-											<TD>Portee: {{partyDetailCtrl.selectedTroup.spell.portee}}</TD>
-											<TD>R&eacute;sistance: {{partyDetailCtrl.selectedTroup.spell.resistance}}</TD>
+											<TD colspan=2>Portee: {{partyDetailCtrl.selectedTroup.spell.portee}}</TD>
                                     	</TR>
                                     	</TABLE>
                         </div>
