@@ -48,12 +48,12 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading" role="tab" id="headingOne">
                                         <h4 class="panel-title">
-                                            <span ng-class="{'glyphicon glyphicon-ok' : unit.tir}">
-
-					      	</span>
+                                            <span ng-class="{'glyphicon glyphicon-screenshot' : unit.tir}" Title="Unité d'archerie"></span>
                                             <a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne-{{$index}}" aria-expanded="true" aria-controls="collapseOne">
-					          {{unit.name}}	       {{unit.type2}}	{{unit.min}}  {{unit.max}}
-					        </a>
+					          					<span class="unitName">{{unit.name}}</span>
+					          					<span class="badge points">{{unit.cost}} pts</span>
+					          					<span class="badge">{{unit.min}}-{{unit.max}}</span>
+					          				</a>
                                             <span class="glyphicon glyphicon-plus pull-right iconelist" ng-touch="partyCtrl.addtroupe(unit,1)" ng-click="partyCtrl.addtroupe(unit,1)"></span>
                                             <span class="CountLabel visible-xs pull-right" ng-model="unit.count">{{unit.count}}</span>
                                             <!--span class="glyphicon glyphicon-minus pull-right iconelist" ng-touch="partyCtrl.addtroupe(unit,-1)" ng-click="partyCtrl.addtroupe(unit,-1)"></span-->
@@ -74,7 +74,8 @@
                                                     <p>force : {{unit.force}}</p>
                                                     <p>taille : {{unit.taille}}</p>
                                                     <p>magie : {{unit.magie}}</p>
-                                                    <p>$ :{{unit.cost}}</p>
+                                                    <p>Type :{{unit.type2}}</p>
+
                                                 </div>
 
                                                 <div class="col-lg-5">
@@ -169,8 +170,9 @@
                 <div class="panel-body">
                     <div class="alert alert-success" role="alert" ng-repeat="unittroups in partyCtrl.party.unitList">
                         <button type="button" class="close" aria-label="Close" ng-click="partyCtrl.removetroupe(unittroups)"><span aria-hidden="true">&times;</span></button>
-                        <!--span class="badge">{{unittroups.count}}</span--><B>{{unittroups.unit.name}}</B> ({{unittroups.unit.cost*unittroups.count}} pts)
+                        <span class="badge points">{{unittroups.unit.cost*unittroups.count}} pts</span>
                         <input type="number" class="col-lg-2 formAppinputNB" ng-change="partyCtrl.updateTroup(unittroups)" ng-model="unittroups.count" />
+                        <span class="unitName">{{unittroups.unit.name}}</span>
                     </div>
                 </div>
             </div>
@@ -180,7 +182,10 @@
                 <div class="panel-body">
                     <div class="alert alert-info" role="alert" ng-repeat="spelltroups in partyCtrl.party.spellList">
                         <button type="button" class="close" aria-label="Close" ng-click="partyCtrl.addSpell(spelltroups.spell,-1)"><span aria-hidden="true">&times;</span></button>
-                        <span class="badge">{{spelltroups.count}}</span> <B>{{spelltroups.spell.name}}</B> ({{spelltroups.spell.cost}} pts)
+                        <span class="badge">{{spelltroups.count}}</span>
+						<span class="badge spellCollege">{{spelltroups.spell.name.substring(1,spelltroups.spell.name.indexOf(']'))}}</span>
+                        <span class="badge points">{{spelltroups.spell.cost}} pts</span>
+						<span class="spellName">{{spelltroups.spell.name.substring(spelltroups.spell.name.indexOf(']')+1)}}</span>
 
                     </div>
                 </div>

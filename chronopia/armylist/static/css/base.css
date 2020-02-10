@@ -213,3 +213,20 @@ input[type="number"] {
 	font-size:13px;
 	font-weight:bold;
 }
+.unitName {
+	font-face:Arial;
+	font-size:13px;
+	font-weight:bold;
+}
+.points {
+	font-face:Arial;
+	font-size:10px;
+	font-weight:normal;
+	font-style:italic;
+}
+.unitClassification{
+	font-face:Arial;
+	font-size:10px;
+	font-weight:normal;
+	font-style:italic;
+}

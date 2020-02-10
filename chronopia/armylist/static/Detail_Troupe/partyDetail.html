@@ -16,7 +16,7 @@
                         <li class="list-group-item" ng-class="{'active':partyDetailCtrl.isSelect(unitTroup)}" ng-repeat="unitTroup in partyDetailCtrl.troups.unitList" ng-click="partyDetailCtrl.setSelectedTroup(unitTroup)">
                              <!--<span ng-click="partyDetailCtrl.removeTroup(unitTroup.unit.id)" class="badge">X</span>-->
                              <button type="button" class="close" aria-label="Close" ng-click="partyDetailCtrl.removeTroup(unitTroup.unit.id)">&nbsp;<span aria-hidden="true">&times;</span></button>
-                             <B>{{unitTroup.unit.name}}</B>
+                             <span class="unitName">{{unitTroup.unit.name}}</span>
                              <span class="badge">{{unitTroup.count}}</span>
                              <span class="badge">{{unitTroup.unit.cost*unitTroup.count}} pts</span>
                         </li>
