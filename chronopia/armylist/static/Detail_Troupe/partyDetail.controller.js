@@ -1,5 +1,15 @@
 var armyModule = angular.module("armyCreationModule");
 
+// --- WMA rolls metrics JS
+var rolls = []; var total= 0;
+function recordRoll(s) {
+	//console.log(s.innerText);
+	rolls.push(s.innerText);
+	total+=(parseInt(s.innerText));
+	document.getElementById("rollsmetrics").innerText = "Moyenne: "+Math.round(total/rolls.length*10)/10 + " en "+rolls.length+" jets.";
+}
+// ----------------------					
+
 armyModule.controller("partyDetailController", ["ArmyPartyDisplay", "user", "$routeParams", function(ArmyPartyDisplay, user, $routeParams) {
     var self = this;
     self.partyTroupId = $routeParams.ID;
