@@ -28,6 +28,8 @@ app.config(["$routeProvider","$locationProvider", function($routeProvider,$locat
 	.when('/listarmee/:ID', { controller : 'partyCreationController', controllerAs : 'partyCtrl', templateUrl : '/static/compoCreation/partycreation.html' })
 	.when('/compoOverView', { controller : 'partyOverviewController', controllerAs : 'partyOverCtrl', templateUrl : '/static/compoOverview/partyOverview.html' })
 	.when('/detail/:ID', { controller : 'partyDetailController', controllerAs : 'partyDetailCtrl', templateUrl : '/static/Detail_Troupe/partyDetail.html' })
+	.when('/rules/', { controller : 'partyDetailController', controllerAs : 'partyDetailCtrl', templateUrl : '/static/rules/index.html' })
+	.when('/rules/images/', { controller : 'partyDetailController', controllerAs : 'partyDetailCtrl', templateUrl : '/static/rules/images/' })
 
 	.otherwise({ redirectTo : '/compoOverView' });
 }]);
