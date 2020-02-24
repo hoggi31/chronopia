@@ -2,7 +2,7 @@
 from django.contrib import admin
 import armylist.signals
 
-from armylist.models import Unit,Attack,spell,Competence,Army,Army_Party,TroupUnit,TroupSpell,Party,Clan
+from armylist.models import Unit,Attack,spell,Competence,Army,Army_Party,TroupUnit,TroupSpell,Party,Clan,Monture
 from django.contrib.auth.models import User
 
 class AttackInline(admin.StackedInline):
@@ -44,5 +44,6 @@ admin.site.register(Army_Party)
 admin.site.register(TroupUnit)
 admin.site.register(TroupSpell)
 admin.site.register(Clan)
+admin.site.register(Monture)
 
 # Register your models here.

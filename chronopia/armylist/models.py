@@ -65,6 +65,15 @@ class Clan(models.Model):
     def __unicode__(self):              # __unicode__ on Python 2
         return self.name
 
+class Monture(Card):
+    action = models.IntegerField(blank=True,null=True)
+    mouvement = models.IntegerField(blank=True,null=True)
+    vol = models.IntegerField(blank=True,null=True)	
+    force = models.IntegerField(blank=True,null=True)
+    CD = models.IntegerField(blank=True,null=True)
+    def __unicode__(self):              # __unicode__ on Python 2
+        return self.name
+
 class Unit(Card):
     action = models.IntegerField(blank=True,null=True)
     mouvement = models.IntegerField(blank=True,null=True)
@@ -85,6 +94,7 @@ class Unit(Card):
     type = models.CharField(max_length=20,choices=UNIT_CHOICES,blank=True,null=True)
     type2 = models.CharField(max_length=20,blank=True,null=True)
     tir = models.BooleanField()
+    monture = models.ManyToManyField(Monture,related_name='cavaliers',blank=True,null=True)
 
     def __unicode__(self):              # __unicode__ on Python 2
         return self.name
