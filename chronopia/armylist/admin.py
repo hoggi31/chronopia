@@ -28,14 +28,16 @@ class UserInline(admin.StackedInline):
 class Army_Party_inline(admin.StackedInline):
     model = Army_Party
 
-
+class CompetenceAdmin(admin.ModelAdmin):
+    model=Competence
+    list_filter = ('name',)  
     
     
 # Register your models here.
 admin.site.register(Attack)
 admin.site.register(Party)
 admin.site.register(spell)
-admin.site.register(Competence)
+admin.site.register(Competence,CompetenceAdmin)
 admin.site.register(Unit)
 admin.site.register(Army, ArmyAdmin)
 admin.site.register(Army_Party)
