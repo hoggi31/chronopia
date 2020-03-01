@@ -6,12 +6,17 @@ Created on 21 juil. 2016
 '''
 from rest_framework import serializers
 
-from armylist.models import Unit,Attack,spell,Competence,Army,Army_Party,TroupUnit,TroupSpell,Party,Clan
+from armylist.models import Unit,Attack,spell,Competence,Army,Army_Party,TroupUnit,TroupSpell,Party,Clan,Monture
 from django.contrib.auth.models import User
 
 #DocumentType(Authored):
 #    lettre =models.CharField(max_length=4, primary_key=True)  
 #    name=models.CharField(max_length=50) 
+class MontureSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Monture
+        fields = "__all__"
+
 class usersSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
@@ -41,6 +46,7 @@ class UnitSerializer(serializers.ModelSerializer):
     competences = CompetenceSerializer( many=True, read_only=True)
     attaques = attaquesSerializer(many=True, read_only=True)    
     clan = ClanSerializer(many=False, read_only=True) 
+    monture= MontureSerializer(many=True, read_only=True)
     class Meta:
         model = Unit
         fields = ("id", 
@@ -68,7 +74,8 @@ class UnitSerializer(serializers.ModelSerializer):
                     "type2",
                     "army",
                     "clan",
-                    "tir") 
+                    "tir",
+                    "monture") 
         read_only_fields = ('competences','attaques','clan') 
 
 

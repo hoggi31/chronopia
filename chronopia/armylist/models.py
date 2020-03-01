@@ -71,6 +71,7 @@ class Monture(Card):
     vol = models.IntegerField(blank=True,null=True)	
     force = models.IntegerField(blank=True,null=True)
     CD = models.IntegerField(blank=True,null=True)
+    CC = models.IntegerField(blank=True,null=True)
     def __unicode__(self):              # __unicode__ on Python 2
         return self.name
 
