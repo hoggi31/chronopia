@@ -45,7 +45,10 @@ class Competence(models.Model):
     dim = models.IntegerField(blank=True,null=True )
     units = models.ManyToManyField('Unit',related_name="competences",blank=True,null=True )
     def __unicode__(self):              # __unicode__ on Python 2
-        return self.name    
+        return self.name   
+        
+    def __str__(self):              # __unicode__ on Python 2
+        return "{} __ {}".format(self.name, self.units.count())   
     
 class spell(Card):    
     costSpell = models.IntegerField(blank=True,null=True) 
