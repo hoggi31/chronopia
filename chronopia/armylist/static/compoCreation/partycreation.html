@@ -68,7 +68,7 @@
                                                 	<table width=100%>
                                                 	<TR>
                                                 	<TD>
-                                                		<span class="badge carac">ACT</span> {{unit.action}}
+                                                		<span class="badge carac">ACT</span> {{unit.action}}<span ng-if="partyCtrl.hasMount(unit)">/{{unit.monture[0].action}}</span>
                                                 	</TD>
                                                 	<TD>
                                                 		<span class="badge carac">MVT</span> {{unit.mouvement}}
@@ -81,24 +81,24 @@
                                                 		<span class="badge carac">ARM</span> {{unit.armure}}
                                                 	</TD>
                                                 	<TD>
-                                                		<span class="badge carac">DEF/B</span> {{unit.defence}} / {{unit.bouclier>0?unit.bouclier:0}}
+                                                		<span class="badge carac">DEF/B</span> {{unit.defence}} | {{unit.bouclier>0?unit.bouclier:0}}
                                                 	</TD>
                                                 	<TD>
-                                                		<span class="badge carac">CD</span> {{unit.commandment}}
+                                                		<span class="badge carac">CD</span> {{unit.commandment}}<span ng-if="partyCtrl.hasMount(unit)">/{{unit.monture[0].CD}}</span>
                                                 	</TD>
                                                 	</TR><TR>
                                                 	<TD>
                                                 		<span class="badge carac">PW</span> {{unit.magie>0?unit.magie:"-"}}
                                                 	</TD>
                                                 	<TD>
-                                                		<span class="badge carac">F</span> {{unit.force}}
+                                                		<span class="badge carac">F</span> {{unit.force}}<span ng-if="partyCtrl.hasMount(unit)">/{{unit.monture[0].force}}</span>
                                                 	</TD>
                                                 	<TD>
                                                 		<span class="badge carac">T</span> {{unit.taille}}
                                                 	</TD>
                                                 	<TR>
                                                 	<TD COLSPAN=3>
-                                                		<span class="badge carac">Type</span> {{unit.type}} - {{unit.type2}} {{unit.tir=="1"?"- Archerie":""}}
+                                                		<span class="badge carac">Type</span> {{unit.type}} <span ng-if="partyCtrl.hasMount(unit)">/ {{unit.monture[0].description}}</span> - {{unit.type2}} {{unit.tir=="1"?"- Archerie":""}}
                                                 	</TD>
                                                 	</TR>
                                                 	<TR>

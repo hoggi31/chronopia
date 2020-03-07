@@ -36,17 +36,18 @@
 						<DIV ID="unitCardClose" CLASS="unitCardIcons" ng-click="partyDetailCtrl.hideCard()">X</DIV>
 						<DIV ID="unitCardName" CLASS="unitCardIcons">{{partyDetailCtrl.selectedTroup.unit.name}} ({{partyDetailCtrl.selectedTroup.count}})</DIV>
 						<DIV ID="unitCardPic" CLASS="unitCardIcons" STYLE="background-image:url({{partyDetailCtrl.selectedTroup.unit.model_pic}});"></DIV>
-						<DIV ID="unitCardArmy" CLASS="unitCardIcons" STYLE="background-image:url({{partyDetailCtrl.selectedTroup.unit.clan.model_pic}});">{{partyDetailCtrl.selectedTroup.unit.type2}}</DIV>
+						<DIV ID="unitCardArmy" CLASS="unitCardIcons" STYLE="background-image:url({{partyDetailCtrl.selectedTroup.unit.clan.model_pic}});">{{partyDetailCtrl.selectedTroup.unit.type2}}<BR ng-if="partyDetailCtrl.hasMount(partyDetailCtrl.selectedTroup.unit)">{{partyDetailCtrl.selectedTroup.unit.monture[0].description}}</BR></DIV>
+						<DIV ID="unitCardArmyName" CLASS="unitCardIcons"> {{partyDetailCtrl.selectedTroup.unit.clan.name}}</DIV>
 						<DIV ID="unitCardWounds" CLASS="unitCardIcons">{{partyDetailCtrl.selectedTroup.unit.wound}}</DIV>
-						<DIV ID="unitCardLeadership" CLASS="unitCardIcons">{{partyDetailCtrl.selectedTroup.unit.commandment}}</DIV>
-						<DIV ID="unitCardActions" CLASS="unitCardIcons">{{partyDetailCtrl.selectedTroup.unit.action}}</DIV>
+						<DIV ID="unitCardLeadership" CLASS="unitCardIcons">{{partyDetailCtrl.selectedTroup.unit.commandment}}<span ng-if="partyDetailCtrl.hasMount(partyDetailCtrl.selectedTroup.unit)">/{{partyDetailCtrl.selectedTroup.unit.monture[0].CD}}</DIV>
+						<DIV ID="unitCardActions" CLASS="unitCardIcons">{{partyDetailCtrl.selectedTroup.unit.action}}<span ng-if="partyDetailCtrl.hasMount(partyDetailCtrl.selectedTroup.unit)">/{{partyDetailCtrl.selectedTroup.unit.monture[0].action}}</span></DIV>
 						<DIV ID="unitCardMovement" CLASS="unitCardIcons">{{partyDetailCtrl.selectedTroup.unit.mouvement}}<span ng-if="partyDetailCtrl.hasFlight(partyDetailCtrl.selectedTroup.unit)"><br>{{partyDetailCtrl.selectedTroup.unit.vol}}&#128330;</span></DIV>
 						<DIV ID="unitCardMinMax" CLASS="unitCardIcons">[{{partyDetailCtrl.selectedTroup.unit.min}}-{{partyDetailCtrl.selectedTroup.unit.max}}]</DIV>
 						<DIV ID="unitCardArmor" CLASS="unitCardIcons">{{partyDetailCtrl.selectedTroup.unit.armure}}</DIV>
-						<DIV ID="unitCardDefense" CLASS="unitCardIcons"><span ng-class="partyDetailCtrl.hasPositiveDefense(partyDetailCtrl.selectedTroup.unit) ? 'red':''">{{partyDetailCtrl.selectedTroup.unit.defence}}</span><span ng-if="partyDetailCtrl.hasShield(partyDetailCtrl.selectedTroup.unit)"><br>{{partyDetailCtrl.selectedTroup.unit.bouclier}}</span></DIV>
+						<DIV ID="unitCardDefense" CLASS="unitCardIcons"><span ng-class="partyDetailCtrl.hasPositiveDefense(partyDetailCtrl.selectedTroup.unit) ? 'red':''">{{partyDetailCtrl.selectedTroup.unit.defence}}</span><span ng-if="partyDetailCtrl.hasShield(partyDetailCtrl.selectedTroup.unit)">|{{partyDetailCtrl.selectedTroup.unit.bouclier}}</span></DIV>
 						<DIV ID="unitCardPower" CLASS="unitCardIcons"><!--ng-show=partyDetailCtrl.IsMago(partyDetailCtrl.selectedTroup.unit)-->{{partyDetailCtrl.selectedTroup.unit.magie}}</DIV>
 						<DIV ID="unitCardCost" CLASS="unitCardIcons">{{partyDetailCtrl.selectedTroup.unit.cost}}</DIV>
-						<DIV ID="unitCardStrength" CLASS="unitCardIcons">F{{partyDetailCtrl.selectedTroup.unit.force}}</DIV>
+						<DIV ID="unitCardStrength" CLASS="unitCardIcons">F{{partyDetailCtrl.selectedTroup.unit.force}}<span ng-if="partyDetailCtrl.hasMount(partyDetailCtrl.selectedTroup.unit)">/{{partyDetailCtrl.selectedTroup.unit.monture[0].force}}</span></DIV>
 						<DIV ID="unitCardSize" CLASS="unitCardIcons">T{{partyDetailCtrl.selectedTroup.unit.taille}}</DIV>
 						<DIV ID="unitCardArchery" CLASS="unitCardIcons" STYLE="background-Image:url(/static/img/tir{{partyDetailCtrl.selectedTroup.unit.tir}}.png);"></DIV>
 						<DIV ID="unitCardSword" CLASS="unitCardIcons" ></DIV>

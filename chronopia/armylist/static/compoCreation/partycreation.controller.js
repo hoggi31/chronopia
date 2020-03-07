@@ -84,6 +84,9 @@ armyModule.controller("partyCreationController", ["army", "user", "ArmyPartyDisp
         });
     }
 
+    self.hasMount = function(unit) {
+        return (unit.monture.length>0);
+    }
     self.hasCompetences = function(unit) {
         return (unit.competences.length>0);
     }
