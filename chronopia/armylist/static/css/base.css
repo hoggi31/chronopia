@@ -308,3 +308,12 @@ input[type="number"] {
 	padding:5px;
 	margin:10px;
 }
+#viewCompo {
+	margin-left:40px;
+	font-size: 24px; 
+	font-weight: bold;
+	text-decoration:none;
+}
+#viewCompo:hover {
+	text-decoration:underline;
+}

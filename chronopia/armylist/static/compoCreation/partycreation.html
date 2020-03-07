@@ -120,7 +120,7 @@
                                                         <!-- unknown in chrome android, ok chrome pc &#129656;-->
                                                         <span class="glyphicon glyphicon-tint blood"></span>{{atk.dmg}}
                                                         <span ng-if="partyCtrl.hasAttackEffect(atk)">&#127183;{{atk.Effets}}</span>
-                                                        <span ng-if="partyCtrl.hasRangeAttack(atk)">&#127919;{{atk.portee}} &#9851;{{atk.cadence}}</span>
+                                                        <span ng-if="partyCtrl.hasRangeAttack(atk)">&#127919;{{atk.portee}} &#8987;<!--&#9851;-->{{atk.cadence}}</span>
                                                     </p>
                                                 </div>
                                             </div>
@@ -195,6 +195,8 @@
                         <input type="text" class="form-control titlepartname" ng-model="partyCtrl.party.name" />
 
                         <button type="submit" class="btn btn-primary mb-2" ng-click="partyCtrl.updatepartyname()">update</button>
+                        <A HREF="#" id="viewCompo" onclick="viewCompo()" Title="Switch to game view">&#128065;</A>
+                        <!-- http://chronopia.myddns.com:8080/armylist/detail/1 http://chronopia.myddns.com:8080/armylist/listarmee/1 -->
                     </form>
                     <ul class="nav nav-pills" role="tablist">
                         <li role="presentation"><a>&#x1f4b0; <span class="label label-primary">{{partyCtrl.totalCost}} pts</span></a></li>

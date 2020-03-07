@@ -1,6 +1,7 @@
 <div class="container-fluid">
 
-	<SPAN ID=armyPartyHeader><H4>{{partyDetailCtrl.name}} - {{partyDetailCtrl.totalCost}} pts</H4></SPAN>
+	<SPAN ID=armyPartyHeader><H4>{{partyDetailCtrl.name}} - {{partyDetailCtrl.totalCost}} pts <A HREF="#" id="viewCompo" onclick="editCompo()" Title="Switch to EDIT view">&#9998;</A></H4>
+</SPAN>
 
     <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active"><a data-target="#unitsPan" aria-controls="home" role="tab" data-toggle="tab">Unites</a></li>
@@ -55,7 +56,7 @@
 							<li class="list-group-item" ng-repeat="attaques in partyDetailCtrl.selectedTroup.unit.attaques">
                             <strong>{{attaques.type}}</strong> &#127922;{{attaques.att}} <span class="glyphicon glyphicon-tint blood"></span>{{attaques.dmg}}
                             <span ng-if="partyDetailCtrl.hasAttackEffect(attaques)">&#127183;{{attaques.Effets}}</span>
-                            <span ng-if="partyDetailCtrl.hasRangeAttack(attaques)">&#127919;{{attaques.portee}} &#9851;{{attaques.cadence}}</span>
+                            <span ng-if="partyDetailCtrl.hasRangeAttack(attaques)">&#127919;{{attaques.portee}} &#8987;<!--&#9851;-->{{attaques.cadence}}</span>
                         	</li>
                         </DIV>
 

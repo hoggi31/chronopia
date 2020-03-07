@@ -1,5 +1,9 @@
 var armyModule = angular.module("armyCreationModule");
 
+// ----------------------					
+function viewCompo() { location.replace(location.href.replace("listarmee","detail")); }
+// ----------------------					
+
 armyModule.controller("partyCreationController", ["army", "user", "ArmyPartyDisplay", "Troups", "unit", "$routeParams", "spells", "spellsf", function(army, user, ArmyPartyDisplay, Troups, unit, $routeParams, spells, spellsf) {
     var self = this;
 

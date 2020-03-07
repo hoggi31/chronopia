@@ -8,6 +8,9 @@ function recordRoll(s) {
 	total+=(parseInt(s.innerText));
 	document.getElementById("rollsmetrics").innerText = "Moyenne: "+Math.round(total/rolls.length*10)/10 + " en "+rolls.length+" jets.";
 }
+
+// ----------------------					
+function editCompo() { location.replace(location.href.replace("detail","listarmee")); }
 // ----------------------					
 
 armyModule.controller("partyDetailController", ["ArmyPartyDisplay", "user", "$routeParams", function(ArmyPartyDisplay, user, $routeParams) {
