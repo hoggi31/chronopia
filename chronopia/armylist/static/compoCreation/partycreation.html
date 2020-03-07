@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <h2 class="visible-xs">{{partyCtrl.party.name}}</h2>
+    <h3 class="visible-xs">{{partyCtrl.party.name}} <A HREF="#" id="viewCompo" onclick="viewCompo()" Title="Switch to game view">&#128065;</A></h3>
 
     <div class="row">
         <div class="col-lg-5">
@@ -196,7 +196,6 @@
 
                         <button type="submit" class="btn btn-primary mb-2" ng-click="partyCtrl.updatepartyname()">update</button>
                         <A HREF="#" id="viewCompo" onclick="viewCompo()" Title="Switch to game view">&#128065;</A>
-                        <!-- http://chronopia.myddns.com:8080/armylist/detail/1 http://chronopia.myddns.com:8080/armylist/listarmee/1 -->
                     </form>
                     <ul class="nav nav-pills" role="tablist">
                         <li role="presentation"><a>&#x1f4b0; <span class="label label-primary">{{partyCtrl.totalCost}} pts</span></a></li>
